@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryOne
+namespace LibraryOne.BookClass
 {
     public class Romance: Book
     {
