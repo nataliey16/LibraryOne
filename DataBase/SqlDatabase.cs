@@ -1,5 +1,8 @@
 ﻿using System;
 using MySqlConnector;
+using LibraryOne.BookClass;
+using LibraryOne.UserClass;
+
 
 namespace LibraryOne.DataBase
 {
@@ -19,8 +22,9 @@ namespace LibraryOne.DataBase
 
             connectionStringBuilder.Server = "localhost";
             connectionStringBuilder.UserID = "root";
-            connectionStringBuilder.Password = "Password35!";
+            connectionStringBuilder.Password = "password";
             connectionStringBuilder.Database = "Library";
+
 
 
 
@@ -30,6 +34,26 @@ namespace LibraryOne.DataBase
 
         }
 
+
+        public List<User> LoadEmployees()
+        {
+            MySqlCommand command = SqlConnection.CreateCommand();
+
+            command.CommandText = "SELECT * FROM Customers";
+
+            MySqlDataReader dataReader = command.ExecuteReader();
+
+            List<User> customers = new();
+
+
+            while (dataReader.Read())
+            {
+
+            }
+
+
+            return customers;
+        }
     }
 }
 

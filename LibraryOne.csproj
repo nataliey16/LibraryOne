@@ -56,7 +56,6 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <None Remove="DataBase\" />
-	  <None Remove="Resources\dataBase.sql" />
 	  <None Remove="BookClass\" />
 	  <None Remove="UserClass\" />
 	</ItemGroup>
@@ -64,8 +63,5 @@
 	  <Folder Include="DataBase\" />
 	  <Folder Include="BookClass\" />
 	  <Folder Include="UserClass\" />
-	</ItemGroup>
-	<ItemGroup>
-	  <BundleResource Include="Resources\dataBase.sql" />
 	</ItemGroup>
 </Project>
