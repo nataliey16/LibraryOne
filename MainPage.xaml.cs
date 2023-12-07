@@ -6,14 +6,22 @@ using MySqlConnector;
 
 public partial class MainPage : ContentPage
 {
-
+    // sets the Database property to class type Sqldatabase
     public SqlDatabase Database { get; set; }
 
-	List<Book> books = new();
+    //Lists
+	List<Children> ChildrenBooks = new();
 
-    List<User> Customers = new();
+    List<Mystery> MysteryBooks = new();
 
-    List<User> Librarians = new();
+    List<Romance> RomanceBooks = new();
+
+    List<Science> ScienceBooks = new();
+
+    List<Customer> Customers = new();
+
+    List<Librarian> Librarians = new();
+
 
 
     public MainPage()
@@ -21,13 +29,22 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 
 
+        // inialize and create sqldatabase object/class
         Database = new SqlDatabase();
+
+
+        // calls open method in sqldatabase class 
 		Database.Open();
 
 
-        User customerResults = Database.LoadEmployees();
+        // calls methods in sql data base class and stores values into the lists
+        Customers = Database.LoadCustomers();
 
-        Customers.Add(customerResults);
+        Librarians = Database.LoadLibrarians();
+
+        // set a method call for each book type 
+        ChildrenBooks = Database.LoadChildrenBooks();
+
     }
 
 
