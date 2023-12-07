@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryOne.AddBooksPage"
+             Title="Add Books">
+    <ScrollView>
+        <VerticalStackLayout>
+        <Label Text="LibraryOne." FontSize="26" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" Margin="0,3,0,100" />
+            <Border StrokeThickness="2" WidthRequest="700"  HeightRequest="500" Stroke="#7F8283" StrokeShape="RoundRectangle 40,40,40,40" VerticalOptions="Center" BackgroundColor="LightSteelBlue">
+                <Border.Shadow>
+                    <Shadow Brush="#000" Radius="6" Opacity="0.6"/>
+                </Border.Shadow>
+                <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
+                    <!-- Search label -->
+                    <Label Text="ADD A BOOK" FontSize="25" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" Margin="0,20,0,100" />
+                    <!-- Input Boxes, Search Button, and Picker Menu -->
+                    <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                        <HorizontalStackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="20">
+
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200" >
+                                    <Entry  WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="Title" PlaceholderColor="White" />
+                                </Border>
+
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
+                                    <Entry  WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="Author" PlaceholderColor="White"/>
+                                </Border>
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
+                                    <Entry  WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="ISBN" PlaceholderColor="White"/>
+                                </Border>
+
+
+                            </StackLayout>
+
+                        
+
+                        </HorizontalStackLayout>
+
+
+                    </StackLayout>
+                    <StackLayout>
+                        <HorizontalStackLayout HorizontalOptions="Center" Margin="0,20,0,0">
+                            <!--Picker-->
+                            <Picker WidthRequest="640" BackgroundColor="#FFFDFA" HeightRequest="80" TextColor="White" Title="Select Category" HorizontalOptions="Center" Margin="0,0,0,0" ItemsSource="{Binding BookCategories}" SelectedIndex="0"  />
+                        </HorizontalStackLayout>
+
+                    </StackLayout>
+
+
+                </StackLayout>
+
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
