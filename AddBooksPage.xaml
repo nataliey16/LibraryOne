@@ -10,7 +10,7 @@
                 <Border.Shadow>
                     <Shadow Brush="#000" Radius="6" Opacity="0.6"/>
                 </Border.Shadow>
-                <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
+                <StackLayout Padding="0" VerticalOptions="CenterAndExpand" >
                     <!-- Search label -->
                     <Label Text="ADD A BOOK" FontSize="25" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" Margin="0,20,0,100" />
                     <!-- Input Boxes, Search Button, and Picker Menu -->
@@ -38,27 +38,8 @@
                         </HorizontalStackLayout>
                     </StackLayout>
 
-                    <!--UI for science category -->
-                    <!--<StackLayout x:Name="bookCategoryLayout" Orientation="Horizontal" HorizontalOptions="Center">
-                        <HorizontalStackLayout>
-                            <StackLayout Orientation="Horizontal" Spacing="20">
-
-                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200" >
-                                    <Entry x:Name="entry1" WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="" PlaceholderColor="White" />
-                                </Border>
-
-                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
-                                    <Entry x:Name="entry2" WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="" PlaceholderColor="White"/>
-                                </Border>
-                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
-                                    <Entry x:Name="entry3" WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="" PlaceholderColor="White"/>
-                                </Border>
-
-                            </StackLayout>
-
-                        </HorizontalStackLayout>
-
-                    </StackLayout>-->
+                    <!--UI for science category -OLDER VERSION --> 
+              
                     <!--<StackLayout x:Name="bookCategoryLayout" Orientation="Horizontal" HorizontalOptions="Center">
                         <HorizontalStackLayout>
                             <StackLayout Orientation="Horizontal" Spacing="20">
@@ -78,20 +59,20 @@
                         </HorizontalStackLayout>
                     </StackLayout>-->
 
-                    <StackLayout x:Name="bookCategoryLayout" Orientation="Horizontal" HorizontalOptions="Center">
+                    <StackLayout x:Name="bookCategoryLayout" Orientation="Horizontal" HorizontalOptions="Center" Margin="0,20,0,20">
                         <HorizontalStackLayout>
                             <StackLayout Orientation="Horizontal" Spacing="20">
 
                                 <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200" >
-                                    <Entry x:Name="entry1" Style="{StaticResource CommonEntryStyle}" Placeholder="" />
+                                    <Entry x:Name="entry1" Style="{StaticResource CommonEntryStyle}"  WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="" PlaceholderColor="White" />
                                 </Border>
 
                                 <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
-                                    <Entry x:Name="entry2" Style="{StaticResource CommonEntryStyle}" Placeholder="" />
+                                    <Entry x:Name="entry2" Style="{StaticResource CommonEntryStyle}"   WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="" PlaceholderColor="White"  />
                                 </Border>
 
                                 <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
-                                    <Entry x:Name="entry3" Style="{StaticResource CommonEntryStyle}" Placeholder="" />
+                                    <Entry x:Name="entry3" Style="{StaticResource CommonEntryStyle}" WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="" PlaceholderColor="White" />
                                 </Border>
 
                             </StackLayout>
