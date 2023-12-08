@@ -63,16 +63,42 @@ public partial class MainPage : ContentPage
     }
 
 
-    public void SearchBook()
+    // on search button clicked calls search method 
+    public void Button_ClickedSearch(System.Object sender, System.EventArgs e)
     {
-
+        SearchBook();
 
 
     }
-	
 
 
-	
-	
+
+    // Search for book 
+    public void SearchBook()
+    {
+
+        string BookTitleSerach = SearchTitle.Text;
+
+        string BookAuthorFNSearch = SearchAuthorFirstName.Text;
+
+
+        foreach (Book book in Allbooks)
+        {
+
+            if (BookTitleSerach == book.Title)
+            {
+
+            }
+        }
+
+    }
+
+
+
+    
+
+
+
+
 }
 

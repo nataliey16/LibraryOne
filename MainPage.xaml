@@ -30,20 +30,26 @@
 
                                <Border Stroke="White" StrokeThickness="3" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
 
-                                   <Entry  WidthRequest="200" HeightRequest="50" TextColor="Gray" Placeholder="Title" />
+                                   <Entry x:Name="SearchTitle" WidthRequest="200" HeightRequest="50" TextColor="Gray" Placeholder="Title" />
 
                                </Border>
                                
                                <Border Stroke="White" StrokeThickness="3" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
-                                   <Entry  WidthRequest="200" HeightRequest="50" TextColor="Gray" Placeholder="Author" />
+                                   <Entry x:Name="SearchAuthorFirstName"  WidthRequest="200" HeightRequest="50" TextColor="Gray" Placeholder="Author First Name" />
 
                                </Border>
+
+
+                               <!--<Border Stroke="White" StrokeThickness="3" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
+                                   <Entry  WidthRequest="200" HeightRequest="50" TextColor="Gray" Placeholder="Author Last Name" />
+
+                               </Border>-->
                                
                             
                            </StackLayout>
 
                             <!--Button-->
-                            <Button BackgroundColor="#FFFDFA"  WidthRequest="150" CornerRadius="10" TextColor="#1D1E1E" Text="Search" HeightRequest="50" HorizontalOptions="Center" Margin="20,10,0,10" />
+                            <Button BackgroundColor="#FFFDFA"  WidthRequest="150" CornerRadius="10" TextColor="#1D1E1E" Text="Search" HeightRequest="50" HorizontalOptions="Center" Margin="20,10,0,10" Clicked="Button_ClickedSearch"/>
 
                         </HorizontalStackLayout>
             
