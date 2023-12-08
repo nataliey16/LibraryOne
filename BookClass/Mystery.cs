@@ -8,14 +8,14 @@ namespace LibraryOne.BookClass
 {
     public class Mystery : Book
     {
-
+		// mystery books start with 1
 		//Fields
-		private string suspenseLevel; //low, medium, high
+		private int suspenseLevel; //low, medium, high
 		private string literatureType; // fiction or non - fiction
 
 		//Properties
 
-		public string SuspenseLevel
+		public int SuspenseLevel
 		{
 			get { return suspenseLevel; }
 			set { suspenseLevel = value; }
@@ -28,7 +28,7 @@ namespace LibraryOne.BookClass
 
 
 		//Constructor
-		public Mystery(int isbn, string title, string authorFirstName, string authorLastName, bool isCheckedOut, string checkOutDate, string returnDate, string suspenseLevel, string literatureType) : base(isbn, title, authorFirstName, authorLastName, isCheckedOut, checkOutDate, returnDate)
+		public Mystery(string isbn, string title, string authorFirstName, string authorLastName, bool isCheckedOut, string checkOutDate, string returnDate, int suspenseLevel, string literatureType) : base(isbn, title, authorFirstName, authorLastName, isCheckedOut, checkOutDate, returnDate)
 		{
 			this.SuspenseLevel = suspenseLevel;
 			this.LiteratureType = literatureType;

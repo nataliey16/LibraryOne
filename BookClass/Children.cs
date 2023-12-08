@@ -9,21 +9,22 @@ namespace LibraryOne.BookClass
     public class Children : Book
     {
 
+		// childern books start with 0
 		//Fields
 
-		private string ageGroup; //preschool (age: 2-5), early readers (ages 6-8), middle grade (ages: 9-12), teens (ages: 13-17)
-		private string learningLevel; //beginner, intermediate, advanced
+		private int ageGroup; //preschool (age: 2-5), early readers (ages 6-8), middle grade (ages: 9-12), teens (ages: 13-17)
+		private int learningLevel; //beginner, intermediate, advanced
 		private string message; // alphabets, being kind, bullying, puberty
 
 
 		//Properties
 
-		public string AgeGroup
+		public int AgeGroup
 		{
 			get { return ageGroup; }
 			set { ageGroup = value; }
 		}
-		public string LearningLevel
+		public int LearningLevel
 		{
 			get { return learningLevel; }
 			set { learningLevel = value; }
@@ -36,7 +37,7 @@ namespace LibraryOne.BookClass
 		}
 
 		//Constructor
-		public Children(int isbn, string title, string authorFirstName, string authorLastName, bool isCheckedOut, string checkOutDate, string returnDate, string ageGroup, string learningLevel, string message) : base(isbn, title, authorFirstName, authorLastName, isCheckedOut, checkOutDate, returnDate)
+		public Children(string isbn, string title, string authorFirstName, string authorLastName, bool isCheckedOut, string checkOutDate, string returnDate, int ageGroup, int learningLevel, string message) : base(isbn, title, authorFirstName, authorLastName, isCheckedOut, checkOutDate, returnDate)
 		{
 			this.AgeGroup = ageGroup;
 			this.LearningLevel = learningLevel;
@@ -59,9 +60,9 @@ namespace LibraryOne.BookClass
 
 			string displayChildrenBookInfo =
 				base.ToString() +
-				$"\n Subject: {ageGroup}" +
-				$"\n Scientific Level: {learningLevel} " +
-				$"\n Type of Book: {message}";
+				$"\n Age Group: {ageGroup}" +
+				$"\n Learning Level: {learningLevel} " +
+				$"\n Message: {message}";
 
 			return displayChildrenBookInfo;
 		}

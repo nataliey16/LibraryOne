@@ -42,8 +42,15 @@ public partial class MainPage : ContentPage
 
         Librarians = Database.LoadLibrarians();
 
-        // set a method call for each book type 
         ChildrenBooks = Database.LoadChildrenBooks();
+
+        MysteryBooks = Database.LoadMysteryBooks();
+
+        RomanceBooks = Database.LoadRomanceBooks();
+
+        ScienceBooks = Database.LoadScienceBooks();
+
+        
 
     }
 

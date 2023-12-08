@@ -8,6 +8,7 @@ namespace LibraryOne.BookClass
 {
     public class Romance: Book
     {
+		// romance books start with 2
 		//Fields
 
 		private string tone; // romantic, dramatic, humorous
@@ -28,7 +29,7 @@ namespace LibraryOne.BookClass
 
 
 		//Constructor
-		public Romance(int isbn, string title, string authorFirstName, string authorLastName, bool isCheckedOut, string checkOutDate, string returnDate, string tone, string setting) : base(isbn, title, authorFirstName, authorLastName, isCheckedOut, checkOutDate, returnDate)
+		public Romance(string isbn, string title, string authorFirstName, string authorLastName, bool isCheckedOut, string checkOutDate, string returnDate, string tone, string setting) : base(isbn, title, authorFirstName, authorLastName, isCheckedOut, checkOutDate, returnDate)
 		{
 
 			this.Tone = tone;
