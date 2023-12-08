@@ -22,6 +22,7 @@ public partial class MainPage : ContentPage
 
     List<Librarian> Librarians = new();
 
+    List<Book> Allbooks = new();
 
 
     public MainPage()
@@ -42,19 +43,32 @@ public partial class MainPage : ContentPage
 
         Librarians = Database.LoadLibrarians();
 
+
         ChildrenBooks = Database.LoadChildrenBooks();
+        Allbooks.AddRange(ChildrenBooks);
+
 
         MysteryBooks = Database.LoadMysteryBooks();
+        Allbooks.AddRange(MysteryBooks);
+
 
         RomanceBooks = Database.LoadRomanceBooks();
+        Allbooks.AddRange(RomanceBooks);
+
 
         ScienceBooks = Database.LoadScienceBooks();
+        Allbooks.AddRange(ScienceBooks);
 
-        
 
     }
 
 
+    public void SearchBook()
+    {
+
+
+
+    }
 	
 
 
