@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryOne
+namespace LibraryOne.BookClass
 {
     public abstract class Book
     {
 
 		//Fields
-		private int isbn;
+		private string isbn;
 		private string title;
 		private string authorFirstName;
 		private string authorLastName;
@@ -21,7 +21,7 @@ namespace LibraryOne
 		//private string category;
 
 		//Properties
-		public int Isbn
+		public string Isbn
 		{
 			get { return isbn; }
 			set { isbn = value; }
@@ -71,7 +71,7 @@ namespace LibraryOne
 
 
 		//Constructor
-		public Book(int isbn, string title, string authorFirstName, string authorLastName, bool isCheckedOut, string checkOutDate, string returnDate)
+		public Book(string isbn, string title, string authorFirstName, string authorLastName, bool isCheckedOut, string checkOutDate, string returnDate)
 		{
 			this.Isbn = isbn;
 			this.Title = title;

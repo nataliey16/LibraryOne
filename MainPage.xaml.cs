@@ -1,14 +1,78 @@
 ﻿namespace LibraryOne;
+using LibraryOne.DataBase;
+using LibraryOne.BookClass;
+using LibraryOne.UserClass;
+using MySqlConnector;
 
 public partial class MainPage : ContentPage
 {
-	
+    // sets the Database property to class type Sqldatabase
+    public SqlDatabase Database { get; set; }
 
-	public MainPage()
+    //Lists
+	List<Children> ChildrenBooks = new();
+
+    List<Mystery> MysteryBooks = new();
+
+    List<Romance> RomanceBooks = new();
+
+    List<Science> ScienceBooks = new();
+
+    List<Customer> Customers = new();
+
+    List<Librarian> Librarians = new();
+
+    List<Book> Allbooks = new();
+
+
+    public MainPage()
 	{
 		InitializeComponent();
-	}
 
+
+        // inialize and create sqldatabase object/class
+        Database = new SqlDatabase();
+
+
+        // calls open method in sqldatabase class 
+		Database.Open();
+
+
+        // calls methods in sql data base class and stores values into the lists
+        Customers = Database.LoadCustomers();
+
+        Librarians = Database.LoadLibrarians();
+
+
+        ChildrenBooks = Database.LoadChildrenBooks();
+        Allbooks.AddRange(ChildrenBooks);
+
+
+        MysteryBooks = Database.LoadMysteryBooks();
+        Allbooks.AddRange(MysteryBooks);
+
+
+        RomanceBooks = Database.LoadRomanceBooks();
+        Allbooks.AddRange(RomanceBooks);
+
+
+        ScienceBooks = Database.LoadScienceBooks();
+        Allbooks.AddRange(ScienceBooks);
+
+
+    }
+
+
+    public void SearchBook()
+    {
+
+
+
+    }
+	
+
+
+	
 	
 }
 
