@@ -3,12 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:LibraryOne"
              x:Class="LibraryOne.App">
-    <Application.Resources>
+    <!--<Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>-->
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="CommonEntryStyle" TargetType="Entry">
+                <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="PlaceholderColor" Value="White" />
+                <!-- Add other common properties as needed -->
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

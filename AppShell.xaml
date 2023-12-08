@@ -12,7 +12,7 @@
         Route="MainPage" />-->
 
     <TabBar x:Name="MyTabBar">
-        <Tab Title="Home" >
+        <Tab Title="Search Books" >
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
 
         </Tab>

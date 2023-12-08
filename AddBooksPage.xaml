@@ -28,23 +28,76 @@
                                 <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
                                     <Entry  WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="ISBN" PlaceholderColor="White"/>
                                 </Border>
-
-
                             </StackLayout>
-
-                        
-
                         </HorizontalStackLayout>
-
-
                     </StackLayout>
                     <StackLayout>
                         <HorizontalStackLayout HorizontalOptions="Center" Margin="0,20,0,0">
                             <!--Picker-->
-                            <Picker WidthRequest="640" BackgroundColor="#FFFDFA" HeightRequest="80" TextColor="White" Title="Select Category" HorizontalOptions="Center" Margin="0,0,0,0" ItemsSource="{Binding BookCategories}" SelectedIndex="0"  />
+                            <Picker x:Name="findBookCategoryFromPicker" WidthRequest="640" BackgroundColor="#FFFDFA" HeightRequest="80" TextColor="White" Title="Select Category" HorizontalOptions="Center" Margin="0,0,0,0" ItemsSource="{Binding BookCategories}" SelectedIndex="0"   SelectedIndexChanged="BookCategoryPickerChanged"  />
+                        </HorizontalStackLayout>
+                    </StackLayout>
+
+                    <!--UI for science category -->
+                    <!--<StackLayout x:Name="bookCategoryLayout" Orientation="Horizontal" HorizontalOptions="Center">
+                        <HorizontalStackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="20">
+
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200" >
+                                    <Entry x:Name="entry1" WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="" PlaceholderColor="White" />
+                                </Border>
+
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
+                                    <Entry x:Name="entry2" WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="" PlaceholderColor="White"/>
+                                </Border>
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
+                                    <Entry x:Name="entry3" WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="" PlaceholderColor="White"/>
+                                </Border>
+
+                            </StackLayout>
+
                         </HorizontalStackLayout>
 
+                    </StackLayout>-->
+                    <!--<StackLayout x:Name="bookCategoryLayout" Orientation="Horizontal" HorizontalOptions="Center">
+                        <HorizontalStackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="20">
+
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200" >
+                                    <Entry x:Name="entry1" WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="" PlaceholderColor="White" />
+                                </Border>
+
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
+                                    <Entry x:Name="entry2" WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="" PlaceholderColor="White"/>
+                                </Border>
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
+                                    <Entry x:Name="entry3" WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="" PlaceholderColor="White"/>
+                                </Border>
+
+                            </StackLayout>
+                        </HorizontalStackLayout>
+                    </StackLayout>-->
+
+                    <StackLayout x:Name="bookCategoryLayout" Orientation="Horizontal" HorizontalOptions="Center">
+                        <HorizontalStackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="20">
+
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200" >
+                                    <Entry x:Name="entry1" Style="{StaticResource CommonEntryStyle}" Placeholder="" />
+                                </Border>
+
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
+                                    <Entry x:Name="entry2" Style="{StaticResource CommonEntryStyle}" Placeholder="" />
+                                </Border>
+
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
+                                    <Entry x:Name="entry3" Style="{StaticResource CommonEntryStyle}" Placeholder="" />
+                                </Border>
+
+                            </StackLayout>
+                        </HorizontalStackLayout>
                     </StackLayout>
+
 
 
                 </StackLayout>
