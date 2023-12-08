@@ -17,6 +17,8 @@ namespace LibraryOne.BookClass
 		private bool isCheckedOut;
 		private string checkOutDate;
 		private string returnDate;
+		//Added this
+		//private string category;
 
 		//Properties
 		public string Isbn
@@ -61,6 +63,12 @@ namespace LibraryOne.BookClass
 			set { returnDate = value; }
 		}
 
+		//public string Category
+		//{
+		//	get { return category;}
+		//	set { category = value; }	
+		//}
+
 
 		//Constructor
 		public Book(string isbn, string title, string authorFirstName, string authorLastName, bool isCheckedOut, string checkOutDate, string returnDate)
@@ -72,6 +80,7 @@ namespace LibraryOne.BookClass
 			this.IsCheckedOut = isCheckedOut;
 			this.CheckOutDate = checkOutDate;
 			this.ReturnDate = returnDate;
+			//this.category = category;
 		}
 
 

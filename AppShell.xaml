@@ -6,9 +6,21 @@
     xmlns:local="clr-namespace:LibraryOne"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
+    <!--<ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage" />-->
+
+    <TabBar x:Name="MyTabBar">
+        <Tab Title="Search Books" >
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
+
+        </Tab>
+        <Tab Title="Add Books" >
+            <ShellContent ContentTemplate="{DataTemplate local:AddBooksPage}" Route="AddBooksPage" />
+
+        </Tab>
+    
+    </TabBar>
 
 </Shell>
