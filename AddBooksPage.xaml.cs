@@ -1,10 +1,20 @@
 using Microsoft.Maui;
 using System.Collections.ObjectModel;
+using System.Xml.Linq;
+using LibraryOne.DataBase;
+using LibraryOne.BookClass;
 
 namespace LibraryOne;
 
 public partial class AddBooksPage : ContentPage
 {
+	//Add Database functionality
+	public SqlDatabase Database { get; set; }
+
+	//Stores all Science Books
+	public List<Science> AllScienceBooks { get; set; }
+
+
 
 	//Create an observational list of book categories for Category Picker
 	public ObservableCollection<string> BookCategories { get; set; }
@@ -25,14 +35,31 @@ public partial class AddBooksPage : ContentPage
 	{
 		InitializeComponent();
 		//CREATE ITEMS
+		this.AllScienceBooks = new List<Science>();
 		this.BookCategories = new ObservableCollection<string>();
 		this.BookCategoryPlaceholders = new List<string> { };
 
 		//BIND CONTENT TO XAML
 		this.BindingContext = this;
 
+		// Create connection to database
+		this.Database = new SqlDatabase();
+		this.Database.Open();
+
 		//CALL METHOD
+		LoadScienceBookFromDatabase();
 		ListBookCategories();
+	}
+
+	private void LoadScienceBookFromDatabase()
+	{
+		//this.AllScienceBooks.Clear();
+
+		//// Get employees from database
+		////List<Science> results = this.Database.All();
+
+		//// Add science books to AllScienceBooks
+		//this.AllScienceBooks.AddRange(results);
 	}
 
 
@@ -140,98 +167,85 @@ public partial class AddBooksPage : ContentPage
 		}
 	}
 
-	//private void UpdateUIForCategory(string expectedSelectedCategory)
-	//{
-	//	// Clear existing UI elements every time picker changes
-	//	bookCategoryLayout.Children.Clear();
+	private void ClickAddBook(object sender, EventArgs e)
+	{
+		//Input values
+		string isbn;
+		string title;
+		string authorFirstName;
+		string authorLastName;
 
-	//	if (expectedSelectedCategory == "Science")
-	//	{
-	//		Entry entry1 = new Entry { Placeholder = "Subject" };
-	//		Entry entry2 = new Entry { Placeholder = "Scientific Level" };
-	//		Entry entry3 = new Entry { Placeholder = "Type" };
+		//Input values for Science
+		string subject; // e.g., Biology, Chemistry, Physics
+		int scientificLevel; // beginner, intermediate, advanced
+		string typeOfBook; // textbook, journal, report
 
-	//		bookCategoryLayout.Children.Add(entry1);
-	//		bookCategoryLayout.Children.Add(entry2);
-	//		bookCategoryLayout.Children.Add(entry3);
-	//	}
-	//	else if (expectedSelectedCategory == "Kids")
-	//	{
-	//		Entry entry1 = new Entry { Placeholder = "Age Group" };
-	//		Entry entry2 = new Entry { Placeholder = "Learning Level" };
-	//		Entry entry3 = new Entry { Placeholder = "Main Message" };
+		//Input values for Children
+		int ageGroup; //preschool (age: 2-5), early readers (ages 6-8), middle grade (ages: 9-12), teens (ages: 13-17)
+		int learningLevel; //beginner, intermediate, advanced
+		string message; // alphabets, being kind, bullying, puberty
 
-	//		bookCategoryLayout.Children.Add(entry1);
-	//		bookCategoryLayout.Children.Add(entry2);
-	//		bookCategoryLayout.Children.Add(entry3);
-	//	}
-	//	else if (expectedSelectedCategory == "Mystery")
-	//	{
-	//		Entry entry1 = new Entry { Placeholder = "Suspense Level" };
-	//		Entry entry2 = new Entry { Placeholder = "Literature Type" };
+		//Input values for Mystery book: 
+		int suspenseLevel; //low, medium, high
+		string literatureType; // fiction or non - fiction
 
-	//		bookCategoryLayout.Children.Add(entry1);
-	//		bookCategoryLayout.Children.Add(entry2);
-	//	}
-	//	else if (expectedSelectedCategory == "Romance")
-	//	{
-	//		Entry entry1 = new Entry { Placeholder = "Tone" };
-	//		Entry entry2 = new Entry { Placeholder = "Setting" };
+		string tone; // romantic, dramatic, humorous
+		string setting; //location/time period
 
-	//		bookCategoryLayout.Children.Add(entry1);
-	//		bookCategoryLayout.Children.Add(entry2);
-	//	}
+		if (string.IsNullOrEmpty(addAuthorLastName.Text) == false)
+		{
+			authorLastName = addAuthorLastName.Text;
+		}
+		else
+		{
+			DisplayAlert("Error", "Author last name is empty. Please try again.", "Ok");
+			authorLastName = "";
+		}
 
-	//	// For example, you can show/hide certain input boxes or change their properties
-	//}
+		if (string.IsNullOrEmpty(addAuthorFirstName.Text) == false)
+		{
+			authorFirstName = addAuthorFirstName.Text;
+		}
+		else
+		{
+			DisplayAlert("Error", "Author first name is empty. Please try again.", "Ok");
+			authorLastName = "";
+		}
+
+		if (string.IsNullOrEmpty(addBookTitle.Text) == false)
+		{
+			title = addBookTitle.Text;
+		}
+		else
+		{
+			DisplayAlert("Error", "Book title is empty. Please try again.", "Ok");
+			title = "";
+		}
+
+		if (string.IsNullOrEmpty(addBookISBN.Text) == false)
+		{
+			isbn = addBookISBN.Text;
+		}
+		else
+		{
+			DisplayAlert("Error", "Book ISBN is empty. Please try again.", "Ok");
+			isbn = "";
+		}
+
+		if (string.IsNullOrEmpty(addBookISBN.Text) == false)
+		{
+			isbn = addBookISBN.Text;
+		}
+		else
+		{
+			DisplayAlert("Error", "Book ISBN is empty. Please try again.", "Ok");
+			isbn = "";
+		}
 
 
-	//private void UpdateUIForCategory(string expectedSelectedCategory)
-	//{
 
-	//	// Clear existing UI elements every time picker changes
-	//	bookCategoryLayout.Children.Clear();
 
-	//	if (expectedSelectedCategory == "Science")
-	//	{
-	//		Entry entry1 = new Entry { Placeholder = "Subject" };
-	//		Entry entry2 = new Entry { Placeholder = "Scientific Level" };
-	//		Entry entry3 = new Entry { Placeholder = "Type" };
-
-	//		bookCategoryLayout.Children.Add(entry1);
-	//		bookCategoryLayout.Children.Add(entry2);
-	//		bookCategoryLayout.Children.Add(entry3);
-	//	}
-	//	else if (expectedSelectedCategory == "Kids")
-	//	{
-	//		Entry entry1 = new Entry { Placeholder = "Age Group" };
-	//		Entry entry2 = new Entry { Placeholder = "Learning Level" };
-	//		Entry entry3 = new Entry { Placeholder = "Main Message" };
-
-	//		bookCategoryLayout.Children.Add(entry1);
-	//		bookCategoryLayout.Children.Add(entry2);
-	//		bookCategoryLayout.Children.Add(entry3);
-	//	}
-	//	else if (expectedSelectedCategory == "Mystery")
-	//	{
-	//		Entry entry1 = new Entry { Placeholder = "Suspense Level" };
-	//		Entry entry2 = new Entry { Placeholder = "Literature Type" };
-
-	//		bookCategoryLayout.Children.Add(entry1);
-	//		bookCategoryLayout.Children.Add(entry2);
-	//	}
-	//	else if (expectedSelectedCategory == "Romance")
-	//	{
-	//		Entry entry1 = new Entry { Placeholder = "Tone" };
-	//		Entry entry2 = new Entry { Placeholder = "Setting" };
-
-	//		bookCategoryLayout.Children.Add(entry1);
-	//		bookCategoryLayout.Children.Add(entry2);
-	//	}
-
-	//	// For example, you can show/hide certain input boxes or change their properties
-
-	//}
+	}
 
 }
 
