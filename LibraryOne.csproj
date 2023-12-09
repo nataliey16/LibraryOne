@@ -64,5 +64,10 @@
 		<Folder Include="BookClass\" />
 		<Folder Include="UserClass\" />
 	</ItemGroup>
+	<ItemGroup>
+	  <None Update="Data\categories.csv">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
 
 </Project>
