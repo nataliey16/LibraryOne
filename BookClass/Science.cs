@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryOne
+namespace LibraryOne.BookClass
 {
     public class Science : Book
     {
+		// starts with 3
 		//Fields
 		private string subject; // e.g., Biology, Chemistry, Physics
-		private string scientificLevel; // beginner, intermediate, advanced
+		private int scientificLevel; // beginner, intermediate, advanced
 		private string typeOfBook; // textbook, journal, report
 
 
@@ -22,7 +23,7 @@ namespace LibraryOne
 			set { subject = value; }
 		}
 
-		public string ScientificLevel
+		public int ScientificLevel
 		{
 			get { return scientificLevel; }
 			set { scientificLevel = value; }
@@ -36,7 +37,7 @@ namespace LibraryOne
 
 
 		//Constructor
-		public Science(int isbn, string title, string authorFirstName, string authorLastName, bool isCheckedOut, string checkOutDate, string returnDate, string subject, string scientificLevel, string typeOfBook) : base(isbn, title, authorFirstName, authorLastName, isCheckedOut, checkOutDate, returnDate)
+		public Science(string isbn, string title, string authorFirstName, string authorLastName, bool isCheckedOut, string checkOutDate, string returnDate, string subject, int scientificLevel, string typeOfBook) : base(isbn, title, authorFirstName, authorLastName, isCheckedOut, checkOutDate, returnDate)
 		{
 			this.Subject = subject;
 			this.ScientificLevel = scientificLevel;
