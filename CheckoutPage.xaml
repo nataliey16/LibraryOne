@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibraryOne.CheckoutPage"
+             Title="CheckoutPage"
+             BackgroundColor="#FFFDFA">
+
+    <ScrollView>
+        <StackLayout HorizontalOptions="Center">
+
+            <Label Text="LibraryOne." FontSize="26" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" Margin="0,20,0,100" />
+
+
+            <Border Stroke="#7F8283" 
+                        StrokeThickness="3" 
+                        StrokeShape="RoundRectangle 40,40,40,40" 
+                        HorizontalOptions="Center"
+                        BackgroundColor="LightSteelBlue"
+                        WidthRequest="700">
+
+                <Border.Shadow>
+                    <Shadow Brush="#000"  Radius="6" Opacity="0.6"/>
+                </Border.Shadow>
+
+                <StackLayout>
+                    <!-- Search label -->
+                    <Label Text="Checkout book" FontSize="24" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" Margin="0,20,0,50" />
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="25" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Text="ISBN" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+                        <Label Grid.Row="0" Grid.Column="1" Text="Placeholder Text" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+
+                        <Label Grid.Row="1" Grid.Column="0" Text="Title" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="Placeholder Text" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+
+                        <Label Grid.Row="2" Grid.Column="0" Text="Author Name" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+                        <Label Grid.Row="2" Grid.Column="1" Text="Placeholder Text" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+
+                        <Label Grid.Row="3" Grid.Column="0" Text="Availability" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+                        <Label Grid.Row="3" Grid.Column="1" Text="Placeholder Text" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+
+                        <Label Grid.Row="4" Grid.Column="0" Text="Checked Out Date" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+                        <Label Grid.Row="4" Grid.Column="1" Text="Placeholder Text" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+
+                        <Label Grid.Row="5" Grid.Column="0" Text="Return Date" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+                        <Label Grid.Row="5" Grid.Column="1" Text="Placeholder Text" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+
+                        <Button Grid.Row="6" Grid.Column="0" Clicked="GoToMainPage" BackgroundColor="#FFFDFA"  WidthRequest="150" CornerRadius="10" TextColor="#1D1E1E" Text="Cancel" HeightRequest="50" HorizontalOptions="EndAndExpand" Margin="0,0,25,0" />
+                        <Button Grid.Row="6" Grid.Column="1" BackgroundColor="#FFFDFA"  WidthRequest="150" CornerRadius="10" TextColor="#1D1E1E" Text="Submit" HeightRequest="50" HorizontalOptions="StartAndExpand" Margin="25,0,0,0"/>
+
+                    </Grid>
+                </StackLayout>
+            </Border>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

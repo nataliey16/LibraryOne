@@ -3,6 +3,7 @@ using LibraryOne.DataBase;
 using LibraryOne.BookClass;
 using LibraryOne.UserClass;
 using MySqlConnector;
+using System.Collections.ObjectModel;
 
 public partial class MainPage : ContentPage
 {
@@ -24,11 +25,22 @@ public partial class MainPage : ContentPage
 
     List<Book> Allbooks = new();
 
+    // picker for found books
+    ObservableCollection<string> Foundbooks = new ObservableCollection<string>();
+
+    
 
     public MainPage()
 	{
 		InitializeComponent();
 
+
+    private async void GoToCheckoutPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new CheckoutPage());
+    }
+
+        BindingContext = this;
 
         // inialize and create sqldatabase object/class
         Database = new SqlDatabase();
@@ -59,20 +71,50 @@ public partial class MainPage : ContentPage
         ScienceBooks = Database.LoadScienceBooks();
         Allbooks.AddRange(ScienceBooks);
 
+        // found book picker item source = observable collection
+        BookPicker.ItemsSource = Foundbooks;
+        //BookPicker.ItemDisplayBinding = new Binding("Title");
+       
+        
 
     }
 
 
+    // on search button clicked calls search method 
+    public void Button_ClickedSearch(System.Object sender, System.EventArgs e)
+    {
+        SearchBook();
+    }
+
+
+
+    // Search for book 
     public void SearchBook()
     {
 
+        string BookTitleSerach = SearchTitle.Text;
 
+        string BookAuthorFNSearch = SearchAuthorFirstName.Text;
+
+        string BookAuthorLNSearch = SearchAuthorLastName.Text;
+
+        
+
+
+        foreach (Book book in Allbooks)
+        {
+
+            if (BookTitleSerach == book.Title || (BookAuthorFNSearch == book.AuthorFirstName & BookAuthorLNSearch == book.AuthorLastName))
+            {
+
+
+                string DisplayBook = $"ISBN: {book.Isbn}, Title: {book.Title}, Author: {book.AuthorFirstName} {book.AuthorLastName}";
+
+                Foundbooks.Add(DisplayBook);
+
+            }
+        }
 
     }
-	
-
-
-	
-	
 }
 
