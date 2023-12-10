@@ -4,7 +4,7 @@
              x:Class="LibraryOne.AddBooksPage"
              Title="Add Books">
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout >
         <Label Text="LibraryOne." FontSize="26" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" Margin="0,3,0,100" />
             <Border StrokeThickness="2" WidthRequest="700"  HeightRequest="1000" Stroke="#7F8283" StrokeShape="RoundRectangle 40,40,40,40" VerticalOptions="Center" BackgroundColor="LightSteelBlue">
                 <Border.Shadow>
@@ -17,11 +17,11 @@
                     <StackLayout Orientation="Vertical" HorizontalOptions="Center">
                         <HorizontalStackLayout>
                             <StackLayout Orientation="Horizontal" Spacing="20">
-                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="300" >
-                                    <Entry x:Name="addAuthorFirstName" WidthRequest="300" HeightRequest="50" TextColor="DarkSlateGray" Placeholder="First Name" PlaceholderColor="Gray" />
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="310" >
+                                    <Entry x:Name="addAuthorFirstName" WidthRequest="310" HeightRequest="50" TextColor="DarkSlateGray" Placeholder="First Name" PlaceholderColor="Gray" />
                                 </Border>
-                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="300" >
-                                    <Entry x:Name="addAuthorLastName" WidthRequest="300" HeightRequest="50" TextColor="DarkSlateGray" Placeholder="Last Name" PlaceholderColor="Gray" />
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="310" >
+                                    <Entry x:Name="addAuthorLastName" WidthRequest="310" HeightRequest="50" TextColor="DarkSlateGray" Placeholder="Last Name" PlaceholderColor="Gray" />
                                 </Border>
                             </StackLayout>
 
@@ -31,11 +31,11 @@
                         <HorizontalStackLayout>
                             <StackLayout Orientation="Horizontal" Spacing="20">
 
-                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="300" >
-                                    <Entry x:Name="addBookTitle"  WidthRequest="300" HeightRequest="50" TextColor="DarkSlateGray" Placeholder="Book Title" PlaceholderColor="Gray" />
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="310" >
+                                    <Entry x:Name="addBookTitle"  WidthRequest="310" HeightRequest="50" TextColor="DarkSlateGray" Placeholder="Book Title" PlaceholderColor="Gray" />
                                 </Border>
-                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="300" >
-                                    <Entry x:Name="addBookISBN" WidthRequest="300" HeightRequest="50" TextColor="DarkSlateGray" Placeholder="ISBN" PlaceholderColor="Gray" />
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="310" >
+                                    <Entry x:Name="addBookISBN" WidthRequest="310" HeightRequest="50" TextColor="DarkSlateGray" Placeholder="ISBN" PlaceholderColor="Gray" />
                                 </Border>
 
                             </StackLayout>
@@ -61,9 +61,9 @@
                         </HorizontalStackLayout>
                     </StackLayout>
                     <StackLayout>
-                        <HorizontalStackLayout HorizontalOptions="Center" Margin="0,20,0,0">
+                        <HorizontalStackLayout HorizontalOptions="Center" Margin="0,0,0,20">
                             <!--Picker-->
-                            <Picker x:Name="findBookCategoryFromPicker" WidthRequest="640" BackgroundColor="#FFFDFA" HeightRequest="80" TextColor="White" Title="Select Category" HorizontalOptions="Center" Margin="0,0,0,0" ItemsSource="{Binding BookCategories}" SelectedIndex="0"   SelectedIndexChanged="BookCategoryPickerChanged"  />
+                            <Picker x:Name="findBookCategoryFromPicker" WidthRequest="645" BackgroundColor="#FFFDFA" HeightRequest="80" TextColor="White" Title="Select Category" HorizontalOptions="Center" Margin="0,0,0,0" ItemsSource="{Binding BookCategories}" SelectedIndex="0"   SelectedIndexChanged="BookCategoryPickerChanged"  />
                         </HorizontalStackLayout>
                     </StackLayout>
 
@@ -89,7 +89,7 @@
                     </StackLayout>-->
                  
 
-                    <StackLayout x:Name="bookCategoryLayout" Orientation="Horizontal" HorizontalOptions="Center" Margin="0,20,0,20">
+                    <StackLayout x:Name="scienceCategoryLayout" Orientation="Horizontal" HorizontalOptions="Center" Margin="0, 10,0, 0" >
                         <HorizontalStackLayout>
                             <StackLayout Orientation="Horizontal" Spacing="20">
 
@@ -108,7 +108,56 @@
                         </HorizontalStackLayout>
                     </StackLayout>
 
-                    <StackLayout Padding="0,10,0,10" >
+                    <StackLayout x:Name="childrenCategoryLayout" Orientation="Horizontal" HorizontalOptions="Center" Margin="0,20,0,20" >
+                        <HorizontalStackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="20">
+
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200" >
+                                    <Entry x:Name="addAgeGroup" Style="{StaticResource CommonEntryStyle}"  WidthRequest="200" HeightRequest="50" TextColor="Gray" Placeholder="Age Group" PlaceholderColor="Gray" />
+                                </Border>
+
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
+                                    <Entry x:Name="addLearningLevel" Style="{StaticResource CommonEntryStyle}"   WidthRequest="200" HeightRequest="50" TextColor="Gray" Placeholder="Learning Level" PlaceholderColor="Gray"  />
+                                </Border>
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
+                                    <Entry x:Name="addMessage" Style="{StaticResource CommonEntryStyle}" WidthRequest="200" HeightRequest="50" TextColor="Gray" Placeholder="Message" PlaceholderColor="Gray" />
+                                </Border>
+
+                            </StackLayout>
+                        </HorizontalStackLayout>
+                    </StackLayout>
+
+                    <StackLayout x:Name="mysteryCategoryLayout" Orientation="Horizontal" HorizontalOptions="Center"  Margin="0,20,0,20">
+                        <HorizontalStackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="20">
+
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="310" >
+                                    <Entry x:Name="addSuspenseLevel" Style="{StaticResource CommonEntryStyle}"  WidthRequest="310" HeightRequest="50" TextColor="Gray" Placeholder="Suspense Level" PlaceholderColor="Gray" />
+                                </Border>
+
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="310">
+                                    <Entry x:Name="addLiteratureType" Style="{StaticResource CommonEntryStyle}"   WidthRequest="310" HeightRequest="50" TextColor="Gray" Placeholder="Literature Type" PlaceholderColor="Gray"  />
+                                </Border>
+                            </StackLayout>
+                        </HorizontalStackLayout>
+                    </StackLayout>
+
+                    <StackLayout x:Name="romanceCategoryLayout" Orientation="Horizontal" HorizontalOptions="Center" >
+                        <HorizontalStackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="20">
+
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="310" >
+                                    <Entry x:Name="addTone" Style="{StaticResource CommonEntryStyle}"  WidthRequest="310" HeightRequest="50" TextColor="Gray" Placeholder="Tone" PlaceholderColor="Gray" />
+                                </Border>
+
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="310">
+                                    <Entry x:Name="addSetting" Style="{StaticResource CommonEntryStyle}"   WidthRequest="310" HeightRequest="50" TextColor="Gray" Placeholder="Setting" PlaceholderColor="Gray"  />
+                                </Border>
+                            </StackLayout>
+                        </HorizontalStackLayout>
+                    </StackLayout>
+
+                    <StackLayout Padding="0,10,0,10" Margin="0,50,0,50">
                         <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="300">
                             <Button Text="Add Book"  HorizontalOptions="Center"  WidthRequest="300" BackgroundColor="#FFFDFA" HeightRequest="51" Clicked="ClickAddBook" />
                         </Border>

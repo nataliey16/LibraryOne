@@ -105,67 +105,67 @@ public partial class AddBooksPage : ContentPage
 
 
 		// Update UI based on the selected category
-		UpdateUIForCategory(expectedSelectedCategory);
+		//UpdateUIForCategory(expectedSelectedCategory);
 	}
 
-	private void UpdateUIForCategory(string expectedSelectedCategory)
-	{
-		// Clear existing UI elements every time picker changes
-		bookCategoryLayout.Children.Clear();
+	//private void UpdateUIForCategory(string expectedSelectedCategory)
+	//{
+	//	// Clear existing UI elements every time picker changes
+	//	bookCategoryLayout.Children.Clear();
 
-		if (expectedSelectedCategory == "Science")
-		{
-			Entry entry1 = new Entry { Placeholder = "Subject" };
-			entry1.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-			bookCategoryLayout.Children.Add(entry1);
+	//	if (expectedSelectedCategory == "Science")
+	//	{
+	//		Entry entry1 = new Entry { Placeholder = "Subject" };
+	//		entry1.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
+	//		bookCategoryLayout.Children.Add(entry1);
 
-			Entry entry2 = new Entry { Placeholder = "Scientific Level" };
-			entry2.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-			bookCategoryLayout.Children.Add(entry2);
+	//		Entry entry2 = new Entry { Placeholder = "Scientific Level" };
+	//		entry2.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
+	//		bookCategoryLayout.Children.Add(entry2);
 
-			Entry entry3 = new Entry { Placeholder = "Type" };
-			entry3.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-			bookCategoryLayout.Children.Add(entry3);
-		}
-		// For example, you can show/hide certain input boxes or change their properties
-		//else if (expectedSelectedCategory == "Kids")
-		//{
-		//	Entry entry1 = new Entry { Placeholder = "Age Group" };
-		//	entry1.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-		//	bookCategoryLayout.Children.Add(entry1);
+	//		Entry entry3 = new Entry { Placeholder = "Type" };
+	//		entry3.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
+	//		bookCategoryLayout.Children.Add(entry3);
+	//	}
+	//	// For example, you can show/hide certain input boxes or change their properties
+	//	//else if (expectedSelectedCategory == "Kids")
+	//	//{
+	//	//	Entry entry1 = new Entry { Placeholder = "Age Group" };
+	//	//	entry1.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
+	//	//	bookCategoryLayout.Children.Add(entry1);
 
-		//	Entry entry2 = new Entry { Placeholder = "Learning Level" };
-		//	entry2.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-		//	bookCategoryLayout.Children.Add(entry2);
+	//	//	Entry entry2 = new Entry { Placeholder = "Learning Level" };
+	//	//	entry2.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
+	//	//	bookCategoryLayout.Children.Add(entry2);
 
-		//	Entry entry3 = new Entry { Placeholder = "Message" };
-		//	entry3.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-		//	bookCategoryLayout.Children.Add(entry3);
-		//}
+	//	//	Entry entry3 = new Entry { Placeholder = "Message" };
+	//	//	entry3.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
+	//	//	bookCategoryLayout.Children.Add(entry3);
+	//	//}
 
-		//else if (expectedSelectedCategory == "Mystery")
-		//{
-		//	Entry entry1 = new Entry { Placeholder = "Suspense Level" };
-		//	entry1.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-		//	bookCategoryLayout.Children.Add(entry1);
+	//	//else if (expectedSelectedCategory == "Mystery")
+	//	//{
+	//	//	Entry entry1 = new Entry { Placeholder = "Suspense Level" };
+	//	//	entry1.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
+	//	//	bookCategoryLayout.Children.Add(entry1);
 
-		//	Entry entry2 = new Entry { Placeholder = "Literature Type" };
-		//	entry2.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-		//	bookCategoryLayout.Children.Add(entry2);
+	//	//	Entry entry2 = new Entry { Placeholder = "Literature Type" };
+	//	//	entry2.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
+	//	//	bookCategoryLayout.Children.Add(entry2);
 
-		//}
-		//else if (expectedSelectedCategory == "Romance")
-		//{
-		//	Entry entry1 = new Entry { Placeholder = "Tone" };
-		//	entry1.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-		//	bookCategoryLayout.Children.Add(entry1);
+	//	//}
+	//	//else if (expectedSelectedCategory == "Romance")
+	//	//{
+	//	//	Entry entry1 = new Entry { Placeholder = "Tone" };
+	//	//	entry1.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
+	//	//	bookCategoryLayout.Children.Add(entry1);
 
-		//	Entry entry2 = new Entry { Placeholder = "Setting" };
-		//	entry2.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-		//	bookCategoryLayout.Children.Add(entry2);
+	//	//	Entry entry2 = new Entry { Placeholder = "Setting" };
+	//	//	entry2.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
+	//	//	bookCategoryLayout.Children.Add(entry2);
 
-		//}
-	}
+	//	//}
+	//}
 
 	private void ClickAddBook(object sender, EventArgs e)
 	{
