@@ -34,6 +34,12 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 
+
+    private async void GoToCheckoutPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new CheckoutPage());
+    }
+
         BindingContext = this;
 
         // inialize and create sqldatabase object/class
@@ -110,13 +116,5 @@ public partial class MainPage : ContentPage
         }
 
     }
-
-
-
-    
-
-
-
-
 }
 
