@@ -368,7 +368,7 @@ namespace LibraryOne.DataBase
 
 			// Create the SQL statement
 			// Ensure quotes are placed around string values.
-			command.CommandText = string.Format("INSERT INTO childrenbooks VALUES('{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', {7}, '{8}')",
+			command.CommandText = string.Format("INSERT INTO mysterybooks VALUES('{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', {7}, '{8}')",
 				mystery.Isbn, mystery.Title, mystery.AuthorFirstName, mystery.AuthorLastName, mystery.IsCheckedOut, mystery.CheckOutDate, mystery.ReturnDate, mystery.SuspenseLevel, mystery.LiteratureType);
 
 			// Execute the SQL statement
@@ -388,7 +388,7 @@ namespace LibraryOne.DataBase
 
 			// Create the SQL statement
 			// Ensure quotes are placed around string values.
-			command.CommandText = string.Format("INSERT INTO childrenbooks VALUES('{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', {7}, '{8}')",
+			command.CommandText = string.Format("INSERT INTO romancebooks VALUES('{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', '{7}', '{8}')",
 				romance.Isbn, romance.Title, romance.AuthorFirstName, romance.AuthorLastName, romance.IsCheckedOut, romance.CheckOutDate, romance.ReturnDate, romance.Tone, romance.Setting);
 
 			// Execute the SQL statement

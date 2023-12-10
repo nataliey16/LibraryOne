@@ -14,13 +14,21 @@ public partial class AddBooksPage : ContentPage
 	//Stores all Science Books
 	public List<Science> AllScienceBooks { get; set; }
 
+	//Stores all Children Books
+	public List<Children> AllChildrenBooks { get; set; }
 
+	//Store all Mystery Books
+	public List<Mystery> AllMysteryBooks { get; set; }
+
+	//Store all Romance Books
+	public List<Romance> AllRomanceBooks { get; set; }	
 
 	//Create an observational list of book categories for Category Picker
 	public ObservableCollection<string> BookCategories { get; set; }
 
-	//Create a list of placeholders for each book category
-	public List<string> BookCategoryPlaceholders { get; set; }
+	//Create a observable collection of the Bookentry status
+	public ObservableCollection<bool> EntryIsEnabled {  get; set; }
+
 	
 	//Get full path of the CSV path 
 	public string BookCategoriesCSVFilePath
@@ -36,8 +44,12 @@ public partial class AddBooksPage : ContentPage
 		InitializeComponent();
 		//CREATE ITEMS
 		this.AllScienceBooks = new List<Science>();
+		this.AllChildrenBooks = new List<Children>();
+		this.AllMysteryBooks = new List<Mystery>();
+		this.AllRomanceBooks = new List<Romance>();
+
 		this.BookCategories = new ObservableCollection<string>();
-		this.BookCategoryPlaceholders = new List<string> { };
+		this.EntryIsEnabled = new ObservableCollection<bool>();
 
 		//BIND CONTENT TO XAML
 		this.BindingContext = this;
@@ -47,20 +59,11 @@ public partial class AddBooksPage : ContentPage
 		this.Database.Open();
 
 		//CALL METHOD
-		LoadScienceBookFromDatabase();
 		ListBookCategories();
+		//ApplyEntryBoxStates(expectedSelectedCategory);
 	}
 
-	private void LoadScienceBookFromDatabase()
-	{
-		//this.AllScienceBooks.Clear();
 
-		//// Get employees from database
-		////List<Science> results = this.Database.All();
-
-		//// Add science books to AllScienceBooks
-		//this.AllScienceBooks.AddRange(results);
-	}
 
 
 	private void ListBookCategories()
@@ -80,6 +83,10 @@ public partial class AddBooksPage : ContentPage
 			}
         }
     }
+
+
+
+
 
 	//METHOD TO DYNAMTICALL UPDATE UI DEPENDING ON SELECTED CATEGORY
 	
@@ -105,67 +112,105 @@ public partial class AddBooksPage : ContentPage
 
 
 		// Update UI based on the selected category
-		//UpdateUIForCategory(expectedSelectedCategory);
+		UpdateUIForCategory(expectedSelectedCategory);
 	}
 
-	//private void UpdateUIForCategory(string expectedSelectedCategory)
-	//{
-	//	// Clear existing UI elements every time picker changes
-	//	bookCategoryLayout.Children.Clear();
+	private void UpdateUIForCategory(string expectedSelectedCategory)
+	{
+		this.EntryIsEnabled.Clear(); // Clear the previous state
 
-	//	if (expectedSelectedCategory == "Science")
-	//	{
-	//		Entry entry1 = new Entry { Placeholder = "Subject" };
-	//		entry1.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-	//		bookCategoryLayout.Children.Add(entry1);
+		if (expectedSelectedCategory == "Science")
+		{
+			// Enable the entry boxes for Science category
+			this.EntryIsEnabled.Add(true); // Enable Subject
+			this.EntryIsEnabled.Add(true); // Enable Scientific Level
+			this.EntryIsEnabled.Add(true); // Enable Type of Book
+		}
+		else if (expectedSelectedCategory == "Children")
+		{
+			// Enable the entry boxes for Children category
+			this.EntryIsEnabled.Add(true); // Enable Age Group
+			this.EntryIsEnabled.Add(true); // Enable Learning Level
+			this.EntryIsEnabled.Add(true); // Enable Message
+		}
+		else if (expectedSelectedCategory == "Mystery")
+		{
+			// Enable the entry boxes for Mystery category
+			this.EntryIsEnabled.Add(true); // Enable Suspense Level
+			this.EntryIsEnabled.Add(true); // Enable Literature Type
+		}
+		else if (expectedSelectedCategory == "Romance")
+		{
+			// Enable the entry boxes for Mystery category
+			this.EntryIsEnabled.Add(true); // Enable Suspense Level
+			this.EntryIsEnabled.Add(true); // Enable Literature Type
+		}
+		else
+		{
+			// Disable the entry boxes for other categories
+			DisableEntry();
+		}
 
-	//		Entry entry2 = new Entry { Placeholder = "Scientific Level" };
-	//		entry2.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-	//		bookCategoryLayout.Children.Add(entry2);
 
-	//		Entry entry3 = new Entry { Placeholder = "Type" };
-	//		entry3.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-	//		bookCategoryLayout.Children.Add(entry3);
-	//	}
-	//	// For example, you can show/hide certain input boxes or change their properties
-	//	//else if (expectedSelectedCategory == "Kids")
-	//	//{
-	//	//	Entry entry1 = new Entry { Placeholder = "Age Group" };
-	//	//	entry1.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-	//	//	bookCategoryLayout.Children.Add(entry1);
+		// Apply the entry box states to your UI controls
+		ApplyEntryBoxStates(expectedSelectedCategory);
+	}
 
-	//	//	Entry entry2 = new Entry { Placeholder = "Learning Level" };
-	//	//	entry2.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-	//	//	bookCategoryLayout.Children.Add(entry2);
+	private void DisableEntry()
+	{
+		// Disable all entry boxes
+		this.EntryIsEnabled.Add(false); // Disable Subject
+		this.EntryIsEnabled.Add(false); // Disable Scientific Level
+		this.EntryIsEnabled.Add(false); // Disable Type of Book
+		this.EntryIsEnabled.Add(false); // Disable Age Group
+		this.EntryIsEnabled.Add(false); // Disable Learning Level
+		this.EntryIsEnabled.Add(false); // Disable Message
+		this.EntryIsEnabled.Add(false); // Disable Message
+	}
 
-	//	//	Entry entry3 = new Entry { Placeholder = "Message" };
-	//	//	entry3.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-	//	//	bookCategoryLayout.Children.Add(entry3);
-	//	//}
 
-	//	//else if (expectedSelectedCategory == "Mystery")
-	//	//{
-	//	//	Entry entry1 = new Entry { Placeholder = "Suspense Level" };
-	//	//	entry1.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-	//	//	bookCategoryLayout.Children.Add(entry1);
+	// Implement this method to apply the boolean values to your entry boxes in the UI
+	private void ApplyEntryBoxStates(string expectedSelectedCategory)
+	{
 
-	//	//	Entry entry2 = new Entry { Placeholder = "Literature Type" };
-	//	//	entry2.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-	//	//	bookCategoryLayout.Children.Add(entry2);
 
-	//	//}
-	//	//else if (expectedSelectedCategory == "Romance")
-	//	//{
-	//	//	Entry entry1 = new Entry { Placeholder = "Tone" };
-	//	//	entry1.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-	//	//	bookCategoryLayout.Children.Add(entry1);
+		//By default, entry boxes are disabled 
+		this.addSubject.IsEnabled = false;
+		this.addScientificLevel.IsEnabled = false;
+		this.addTypeOfBook.IsEnabled = false;
+		this.addAgeGroup.IsEnabled = false;
+		this.addLearningLevel.IsEnabled = false;
+		this.addMessage.IsEnabled = false;
+		this.addSuspenseLevel.IsEnabled = false;
+		this.addLiteratureType.IsEnabled = false;	
+		this.addTone.IsEnabled = false;	
+		this.addSetting.IsEnabled = false;	
 
-	//	//	Entry entry2 = new Entry { Placeholder = "Setting" };
-	//	//	entry2.Style = (Style)Application.Current.Resources["CommonEntryStyle"];
-	//	//	bookCategoryLayout.Children.Add(entry2);
+		if (expectedSelectedCategory == "Science" && EntryIsEnabled.Count >= 3)
+		{
+				this.addSubject.IsEnabled = EntryIsEnabled[0];
+				this.addScientificLevel.IsEnabled = EntryIsEnabled[1];
+			this.addTypeOfBook.IsEnabled = EntryIsEnabled[2];
+		}
+		else if (expectedSelectedCategory == "Children" && EntryIsEnabled.Count >= 3)
+		{
+		
+				this.addAgeGroup.IsEnabled = EntryIsEnabled[0];
+				this.addLearningLevel.IsEnabled = EntryIsEnabled[1];
+				this.addMessage.IsEnabled = EntryIsEnabled[2];
+		}
+		else if (expectedSelectedCategory == "Mystery" && EntryIsEnabled.Count >= 2)
+		{
+				this.addSuspenseLevel.IsEnabled = EntryIsEnabled[0];
+			this.addLiteratureType.IsEnabled = EntryIsEnabled[1];
+		}
+		else if (expectedSelectedCategory == "Romance" && EntryIsEnabled.Count >= 2)
+		{
+			this.addTone.IsEnabled = EntryIsEnabled[0];
+			this.addSetting.IsEnabled = EntryIsEnabled[1];
+		}
+	}
 
-	//	//}
-	//}
 
 	private void ClickAddBook(object sender, EventArgs e)
 	{
@@ -184,17 +229,17 @@ public partial class AddBooksPage : ContentPage
 		int scientificLevel; // beginner, intermediate, advanced
 		string typeOfBook; // textbook, journal, report
 
-		////Input values for Children
-		//int ageGroup; //preschool (age: 2-5), early readers (ages 6-8), middle grade (ages: 9-12), teens (ages: 13-17)
-		//int learningLevel; //beginner, intermediate, advanced
-		//string message; // alphabets, being kind, bullying, puberty
+		//Input values for Children
+		int ageGroup; //preschool (age: 2-5), early readers (ages 6-8), middle grade (ages: 9-12), teens (ages: 13-17)
+		int learningLevel; //beginner, intermediate, advanced
+		string message; // alphabets, being kind, bullying, puberty
 
 		////Input values for Mystery book: 
-		//int suspenseLevel; //low, medium, high
-		//string literatureType; // fiction or non - fiction
+		int suspenseLevel; //low, medium, high
+		string literatureType; // fiction or non - fiction
 
-		//string tone; // romantic, dramatic, humorous
-		//string setting; //location/time period
+		string tone; // romantic, dramatic, humorous
+		string setting; //location/time period
 
 		if (string.IsNullOrEmpty(this.addAuthorLastName.Text) == false)
 		{
@@ -261,31 +306,107 @@ public partial class AddBooksPage : ContentPage
 		}
 
 
-		if (string.IsNullOrEmpty(this.entry1.Text) == false)
+		if (string.IsNullOrEmpty(this.addSubject.Text) == false)
 		{
-			subject = this.entry1.Text;
+			subject = this.addSubject.Text;
 		}
 		else
 		{
 			subject = "";
 		}
 
-		if (string.IsNullOrEmpty(this.entry2.Text) == false)
+		if (string.IsNullOrEmpty(this.addScientificLevel.Text) == false)
 		{
-			scientificLevel = int.Parse(this.entry2.Text);
+			scientificLevel = int.Parse(this.addScientificLevel.Text);
 		}
 		else
 		{
 			scientificLevel = -1;
 		}
 
-		if (string.IsNullOrEmpty(this.entry3.Text) == false)
+		if (string.IsNullOrEmpty(this.addTypeOfBook.Text) == false)
 		{
-			typeOfBook = this.entry3.Text;
+			typeOfBook = this.addTypeOfBook.Text;
 		}
 		else
 		{
 			typeOfBook = "";
+		}
+
+
+		//Add Children Book Inputs
+
+
+		if (string.IsNullOrEmpty(this.addAgeGroup.Text) == false)
+		{
+			ageGroup = int.Parse(this.addAgeGroup.Text);
+		}
+		else
+		{
+			ageGroup = -1;
+		}
+
+		if (string.IsNullOrEmpty(this.addLearningLevel.Text) == false)
+		{
+			learningLevel = int.Parse(this.addLearningLevel.Text);
+		}
+		else
+		{
+			learningLevel = -1;
+		}
+
+		if (string.IsNullOrEmpty(this.addMessage.Text) == false)
+		{
+			message = this.addMessage.Text;
+		}
+		else
+		{
+			message= "";
+		}
+
+
+		//Inputs for mystery book
+
+
+
+		if (string.IsNullOrEmpty(this.addSuspenseLevel.Text) == false)
+		{
+			suspenseLevel = int.Parse(this.addSuspenseLevel.Text);
+		}
+		else
+		{
+			suspenseLevel = -1;
+		}
+
+
+		if (string.IsNullOrEmpty(this.addLiteratureType.Text) == false)
+		{
+			literatureType= this.addLiteratureType.Text;
+		}
+		else
+		{
+			literatureType = "";
+		}
+
+
+
+		//Inputs for Romance
+		if (string.IsNullOrEmpty(this.addTone.Text) == false)
+		{
+			tone = this.addTone.Text;
+		}
+		else
+		{
+			tone = "";
+		}
+
+		if (string.IsNullOrEmpty(this.addSetting.Text) == false)
+		{
+			setting= this.addSetting.Text;
+		}
+		else
+		{
+			setting = "";
 		}
 
 
@@ -319,37 +440,23 @@ public partial class AddBooksPage : ContentPage
 			return;
 		}
 
-		if (string.IsNullOrEmpty(subject))
-		{
-			DisplayAlert("Error", "Subject is empty. Please try again.", "Ok");
-			return;
-		}
-		if (scientificLevel < 0)
-		{
-			DisplayAlert("Error", "Scientific level is empty. Please try again.", "Ok");
-			return;
-		}
-		if (string.IsNullOrEmpty(typeOfBook))
-		{
-			DisplayAlert("Error", "Type of book is empty. Please try again.", "Ok");
-			return;
-		}
-		//if (bool.IsNullOrEmpty(isCheckedOut))
-		//{
-		//	DisplayAlert("Error", "Checkout status is empty. Please try again.", "Ok");
-		//	return;
-		//}
-
-
-		//bookCategory = (string)this.findBookCategoryFromPicker.SelectedItem;
-
 		Science science = new Science(isbn, title, authorFirstName, authorLastName, isCheckedOut, checkOutDate, returnDate, subject, scientificLevel, typeOfBook);
-
-		// Add to database
+		Children children = new Children(isbn, title, authorFirstName, authorLastName, isCheckedOut, checkOutDate, returnDate, ageGroup, learningLevel, message);		// Add to database
+		Mystery mystery = new Mystery(isbn, title, authorFirstName, authorLastName, isCheckedOut, checkOutDate, returnDate, suspenseLevel, literatureType);     // Add to database
+		Romance romance = new Romance(isbn, title, authorFirstName, authorLastName, isCheckedOut, checkOutDate, returnDate, tone, setting);
+		
+		
+		//Add to database
 		this.Database.Add(science);
+		this.Database.Add(children);
+		this.Database.Add(mystery);
+		this.Database.Add(romance);
 
 		// Add to existing list
 		this.AllScienceBooks.Add(science);
+		this.AllChildrenBooks.Add(children);
+		this.AllMysteryBooks.Add(mystery);
+		this.AllRomanceBooks.Add(romance);
 
 
 		// Tell user employee was added
