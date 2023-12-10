@@ -4,6 +4,8 @@ using LibraryOne.BookClass;
 using LibraryOne.UserClass;
 using MySqlConnector;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using System;
 
 public partial class MainPage : ContentPage
 {
@@ -67,7 +69,7 @@ public partial class MainPage : ContentPage
 
         // found book picker item source = observable collection
         BookPicker.ItemsSource = Foundbooks;
-        //BookPicker.ItemDisplayBinding = new Binding("Title");
+        
        
         
 
@@ -78,45 +80,77 @@ public partial class MainPage : ContentPage
     public void Button_ClickedSearch(System.Object sender, System.EventArgs e)
     {
         SearchBook();
+        
     }
 
 
 
     // Search for book 
-    public void SearchBook()
+    public async void SearchBook()
     {
-
+        // sets input feild text as varible
         string BookTitleSerach = SearchTitle.Text;
 
         string BookAuthorFNSearch = SearchAuthorFirstName.Text;
 
         string BookAuthorLNSearch = SearchAuthorLastName.Text;
 
-        
 
-
-        foreach (Book book in Allbooks)
+        try // exceptions for is search is null
         {
 
-            if (BookTitleSerach == book.Title || (BookAuthorFNSearch == book.AuthorFirstName & BookAuthorLNSearch == book.AuthorLastName))
+            if(string.IsNullOrEmpty(BookTitleSerach) & string.IsNullOrEmpty(BookAuthorFNSearch) & string.IsNullOrEmpty(BookAuthorLNSearch))
+            {
+                throw new InvalidDataException();
+            }
+
+        }
+        catch (InvalidDataException)
+        {
+
+            await DisplayAlert("Alert", "Search fields cannot be empty", "OK");
+
+        }
+
+        // look for a match in the books list after input is filled out 
+        // exception will throw error if no match is found
+        try
+        {
+
+            if (!string.IsNullOrEmpty(BookTitleSerach) || (!string.IsNullOrEmpty(BookAuthorFNSearch) & !string.IsNullOrEmpty(BookAuthorLNSearch)))
             {
 
+                foreach (Book book in Allbooks)
+                {
+                    if (BookTitleSerach == book.Title || (BookAuthorFNSearch == book.AuthorFirstName & BookAuthorLNSearch == book.AuthorLastName))
+                    {
 
-                string DisplayBook = $"ISBN: {book.Isbn}, Title: {book.Title}, Author: {book.AuthorFirstName} {book.AuthorLastName}";
 
-                Foundbooks.Add(DisplayBook);
+                        string DisplayBook = $"ISBN: {book.Isbn}, Title: {book.Title}, Author: {book.AuthorFirstName} {book.AuthorLastName}";
 
+                        Foundbooks.Add(DisplayBook);
+                        return;
+
+                    }
+                    
+                }
+
+                throw new ArgumentException();
+                    
             }
+                
+            
+            
+
         }
+        catch (ArgumentException)
+        {
+            await DisplayAlert("Alert", "Could not find that book or author", "Search Again");
+        }
+        
 
     }
 
-
-
-    
-
-
-
-
+   
 }
 
