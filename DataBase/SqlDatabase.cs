@@ -289,8 +289,6 @@ namespace LibraryOne.DataBase
                 string type = dataReader.GetString(9);
 
 
-
-
                 Science sciencebook = new Science(isbn, bookTitle, authorFirstName, authorLastName, isCheckedOut, checkOutDate, returnDate, subject, scienctificLevel, type);
 
                 sciencebooks.Add(sciencebook);
@@ -304,23 +302,6 @@ namespace LibraryOne.DataBase
         }
 
 
-		//public void Add(Science science)
-		//{	
-
-		//	// Create MySqlCommand instance
-		//	MySqlCommand command = SqlConnection.CreateCommand();
-
-		//	// Create the SQL statement
-		//	// Ensure quotes are placed around string values.
-		//	command.CommandText = string.Format("INSERT INTO sciencebooks VALUES('{0}', '{1}', '{2}','{3}', {4}, '{5}', '{6}', '{7}', {8}, '{9}'", science.Isbn, science.Title, science.AuthorFirstName, science.AuthorLastName, science.IsCheckedOut, science.CheckOutDate, science.ReturnDate, science.Subject, science.ScientificLevel, science.TypeOfBook);
-
-		//	// Execute the SQL statement
-		//	// Must use the "ExecuteNonQuery" method when writing to the database.
-		//	command.ExecuteNonQuery();
-
-		//	// Ensure the cmd resources are disposed since it's no longer used.
-		//	command.Dispose();
-		//}
 
         //Add to Sciencebooks Database
 		public void Add(Science science)
@@ -397,6 +378,15 @@ namespace LibraryOne.DataBase
 
 			// Ensure the cmd resources are disposed since it's no longer used.
 			command.Dispose();
+		}
+
+		public void Close()
+		{
+			if (this.SqlConnection != null)
+			{
+				this.SqlConnection.Close();
+				this.SqlConnection = null;
+			}
 		}
 	}
 }
