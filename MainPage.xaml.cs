@@ -127,9 +127,6 @@ public partial class MainPage : ContentPage
 
 
 
-
-
-
         }
         catch (InvalidDataException)
         {
@@ -141,6 +138,7 @@ public partial class MainPage : ContentPage
         {
             await DisplayAlert("Alert", "Must enter author first & last name", "OK");
         }
+
 
         // look for a match in the books list after input is filled out 
         // exception will throw error if no match is found
@@ -178,6 +176,8 @@ public partial class MainPage : ContentPage
         
 
     }
+
+
 
 
     // Capitalizes first letter of each word for easier input and interaction with database values
