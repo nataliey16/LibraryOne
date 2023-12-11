@@ -6,6 +6,9 @@ using MySqlConnector;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System;
+using System.Globalization;
+
+
 
 public partial class MainPage : ContentPage
 {
@@ -88,18 +91,20 @@ public partial class MainPage : ContentPage
     // Search for book 
     public async void SearchBook()
     {
-        // sets input feild text as varible
-        string BookTitleSerach = SearchTitle.Text;
+        // sets input feild text as varible and call capitalize frist letter of each word method
+        string BookTitleSearch = CapitalizeFirstLetter(SearchTitle.Text);
+        
 
-        string BookAuthorFNSearch = SearchAuthorFirstName.Text;
+        string BookAuthorFNSearch = CapitalizeFirstLetter(SearchAuthorFirstName.Text);
+        
 
-        string BookAuthorLNSearch = SearchAuthorLastName.Text;
-
+        string BookAuthorLNSearch = CapitalizeFirstLetter(SearchAuthorLastName.Text);
+        
 
         try // exceptions for is search is null
         {
 
-            if(string.IsNullOrEmpty(BookTitleSerach) & string.IsNullOrEmpty(BookAuthorFNSearch) & string.IsNullOrEmpty(BookAuthorLNSearch))
+            if(string.IsNullOrEmpty(BookTitleSearch) & string.IsNullOrEmpty(BookAuthorFNSearch) & string.IsNullOrEmpty(BookAuthorLNSearch))
             {
                 throw new InvalidDataException();
             }
@@ -117,12 +122,12 @@ public partial class MainPage : ContentPage
         try
         {
 
-            if (!string.IsNullOrEmpty(BookTitleSerach) || (!string.IsNullOrEmpty(BookAuthorFNSearch) & !string.IsNullOrEmpty(BookAuthorLNSearch)))
+            if (!string.IsNullOrEmpty(BookTitleSearch) || (!string.IsNullOrEmpty(BookAuthorFNSearch) & !string.IsNullOrEmpty(BookAuthorLNSearch)))
             {
 
                 foreach (Book book in Allbooks)
                 {
-                    if (BookTitleSerach == book.Title || (BookAuthorFNSearch == book.AuthorFirstName & BookAuthorLNSearch == book.AuthorLastName))
+                    if (BookTitleSearch == book.Title || (BookAuthorFNSearch == book.AuthorFirstName & BookAuthorLNSearch == book.AuthorLastName))
                     {
 
 
@@ -138,8 +143,6 @@ public partial class MainPage : ContentPage
                 throw new ArgumentException();
                     
             }
-                
-            
             
 
         }
@@ -151,6 +154,24 @@ public partial class MainPage : ContentPage
 
     }
 
-   
+
+    // Capitalizes first letter of each word for easier input and interaction with database values
+    static string CapitalizeFirstLetter(string input)
+    {
+        if (string.IsNullOrEmpty(input)) // couldnt get exceptions to work without this if 
+        {
+            return string.Empty;
+        }
+
+        TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+
+        return textInfo.ToTitleCase(input);
+    }
+
+
+
+
+
+
 }
 
