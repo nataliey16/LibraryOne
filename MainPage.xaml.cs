@@ -101,13 +101,34 @@ public partial class MainPage : ContentPage
         string BookAuthorLNSearch = CapitalizeFirstLetter(SearchAuthorLastName.Text);
         
 
-        try // exceptions for is search is null
+        try // exceptions for is search is null or if author first & last name are not filled out 
         {
 
             if(string.IsNullOrEmpty(BookTitleSearch) & string.IsNullOrEmpty(BookAuthorFNSearch) & string.IsNullOrEmpty(BookAuthorLNSearch))
             {
                 throw new InvalidDataException();
             }
+            else if(!string.IsNullOrEmpty(BookTitleSearch) & !string.IsNullOrEmpty(BookAuthorFNSearch) & string.IsNullOrEmpty(BookAuthorLNSearch))
+            {
+                throw new ArgumentException();
+            }
+            else if (!string.IsNullOrEmpty(BookTitleSearch) & string.IsNullOrEmpty(BookAuthorFNSearch) & !string.IsNullOrEmpty(BookAuthorLNSearch))
+            {
+                throw new ArgumentException();
+            }
+            else if (string.IsNullOrEmpty(BookTitleSearch) & !string.IsNullOrEmpty(BookAuthorFNSearch) & string.IsNullOrEmpty(BookAuthorLNSearch))
+            {
+                throw new ArgumentException();
+            }
+            else if (string.IsNullOrEmpty(BookTitleSearch) & string.IsNullOrEmpty(BookAuthorFNSearch) & !string.IsNullOrEmpty(BookAuthorLNSearch))
+            {
+                throw new ArgumentException();
+            }
+
+
+
+
+
 
         }
         catch (InvalidDataException)
@@ -115,6 +136,10 @@ public partial class MainPage : ContentPage
 
             await DisplayAlert("Alert", "Search fields cannot be empty", "OK");
 
+        }
+        catch (ArgumentException)
+        {
+            await DisplayAlert("Alert", "Must enter author first & last name", "OK");
         }
 
         // look for a match in the books list after input is filled out 
