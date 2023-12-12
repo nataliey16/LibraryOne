@@ -57,14 +57,8 @@ namespace LibraryOne.BookClass
 		public override string ToString()
 		{
 
-			string displayScienceBookInfo =
-				base.ToString() +
-				$"\n Subject: {subject}" +
-				$"\n Scientific Level: {scientificLevel} " +
-				$"\n Type of Book: {typeOfBook}";
-
-			return displayScienceBookInfo;
-		}
+            return $"ISBN: {Isbn} Title: {Title} Author: {AuthorFirstName}, {AuthorLastName}";
+        }
 
 	}
 }
