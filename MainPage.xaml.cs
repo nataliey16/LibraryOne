@@ -31,7 +31,7 @@ public partial class MainPage : ContentPage
     List<Book> Allbooks = new();
 
     // picker for found books
-    ObservableCollection<string> Foundbooks = new ObservableCollection<string>();
+    ObservableCollection<Book> Foundbooks = new ObservableCollection<Book>();
 
     
 
@@ -82,6 +82,7 @@ public partial class MainPage : ContentPage
     // on search button clicked calls search method 
     public void Button_ClickedSearch(System.Object sender, System.EventArgs e)
     {
+        // clears found book collection so picker is cleared each press
         Foundbooks.Clear();
 
         // calls search method 
@@ -158,9 +159,9 @@ public partial class MainPage : ContentPage
                     {
 
 
-                        string DisplayBook = $"ISBN: {book.Isbn}, Title: {book.Title}, Author: {book.AuthorFirstName} {book.AuthorLastName}";
+                        //string DisplayBook = $"ISBN: {book.Isbn}, Title: {book.Title}, Author: {book.AuthorFirstName} {book.AuthorLastName}";
 
-                        Foundbooks.Add(DisplayBook);
+                        Foundbooks.Add(book);
                         bookCounter++;
 
                     }
