@@ -33,7 +33,7 @@ CREATE TABLE `Childrenbooks` (
   `age_group` int DEFAULT NULL,
   `learning_level` int DEFAULT NULL,
   `message` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1011 DEFAULT CHARSET=armscii8 COLLATE=armscii8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +58,7 @@ CREATE TABLE `Customers` (
   `Customer_First_Name` varchar(50) DEFAULT NULL,
   `Customer_Last_Name` varchar(50) DEFAULT NULL,
   `Customer_email` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1011 DEFAULT CHARSET=armscii8 COLLATE=armscii8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,7 +83,7 @@ CREATE TABLE `Librarian` (
   `Librarian_first_name` varchar(50) DEFAULT NULL,
   `Librarian_last_name` varchar(50) DEFAULT NULL,
   `Librarian_email` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1011 DEFAULT CHARSET=armscii8 COLLATE=armscii8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,7 +113,7 @@ CREATE TABLE `Mysterybooks` (
   `ReturnDate` varchar(50) DEFAULT NULL,
   `Suspense_level` int DEFAULT NULL,
   `literature_type` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1011 DEFAULT CHARSET=armscii8 COLLATE=armscii8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,7 +143,7 @@ CREATE TABLE `Romancebooks` (
   `ReturnDate` varchar(50) DEFAULT NULL,
   `tone` varchar(50) DEFAULT NULL,
   `setting` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1011 DEFAULT CHARSET=armscii8 COLLATE=armscii8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +174,7 @@ CREATE TABLE `Sciencebooks` (
   `subject` varchar(50) DEFAULT NULL,
   `scientific_level` int DEFAULT NULL,
   `type` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1011 DEFAULT CHARSET=armscii8 COLLATE=armscii8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -201,3 +201,4 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2023-12-07 18:02:52
+llibrarysciencebooksibraryonedatabase
