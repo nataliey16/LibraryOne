@@ -142,6 +142,7 @@ public partial class MainPage : ContentPage
 
         // look for a match in the books list after input is filled out 
         // exception will throw error if no match is found
+        int bookCounter = 0;
         try
         {
 
@@ -157,14 +158,16 @@ public partial class MainPage : ContentPage
                         string DisplayBook = $"ISBN: {book.Isbn}, Title: {book.Title}, Author: {book.AuthorFirstName} {book.AuthorLastName}";
 
                         Foundbooks.Add(DisplayBook);
-                        return;
+                        bookCounter++;
 
                     }
                     
                 }
 
-                throw new ArgumentException();
-                    
+                if (bookCounter == 0)
+                {
+                    throw new ArgumentException();
+                }    
             }
             
 
