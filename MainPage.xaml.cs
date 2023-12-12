@@ -82,6 +82,9 @@ public partial class MainPage : ContentPage
     // on search button clicked calls search method 
     public void Button_ClickedSearch(System.Object sender, System.EventArgs e)
     {
+        Foundbooks.Clear();
+
+        // calls search method 
         SearchBook();
         
     }
