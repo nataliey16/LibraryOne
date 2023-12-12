@@ -16,8 +16,10 @@
             <Style x:Key="CommonEntryStyle" TargetType="Entry">
                 <Setter Property="WidthRequest" Value="200" />
                 <Setter Property="HeightRequest" Value="50" />
-                <Setter Property="TextColor" Value="White" />
-                <Setter Property="PlaceholderColor" Value="White" />
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="PlaceholderColor" Value="Gray" />
+                <!--<Setter Property="Margin" Value="10,0,10,0" />-->
+
                 <!-- Add other common properties as needed -->
             </Style>
         </ResourceDictionary>

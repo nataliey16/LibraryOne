@@ -300,8 +300,6 @@ namespace LibraryOne.DataBase
                 string type = dataReader.GetString(9);
 
 
-
-
                 Science sciencebook = new Science(isbn, bookTitle, authorFirstName, authorLastName, isCheckedOut, checkOutDate, returnDate, subject, scienctificLevel, type);
 
                 sciencebooks.Add(sciencebook);
@@ -313,6 +311,94 @@ namespace LibraryOne.DataBase
 
             return sciencebooks;
         }
-    }
+
+
+
+        //Add to Sciencebooks Database
+		public void Add(Science science)
+		{
+			// Create MySqlCommand instance
+			MySqlCommand command = SqlConnection.CreateCommand();
+
+			// Create the SQL statement
+			// Ensure quotes are placed around string values.
+			command.CommandText = string.Format("INSERT INTO sciencebooks VALUES('{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', '{7}', {8}, '{9}')",
+				science.Isbn, science.Title, science.AuthorFirstName, science.AuthorLastName, science.IsCheckedOut, science.CheckOutDate, science.ReturnDate, science.Subject, science.ScientificLevel, science.TypeOfBook);
+
+			// Execute the SQL statement
+			// Must use the "ExecuteNonQuery" method when writing to the database.
+			command.ExecuteNonQuery();
+
+			// Ensure the cmd resources are disposed since it's no longer used.
+			command.Dispose();
+		}
+
+        //Add to Childrens books database
+		public void Add(Children children)
+		{
+			// Create MySqlCommand instance
+			MySqlCommand command = SqlConnection.CreateCommand();
+
+			// Create the SQL statement
+			// Ensure quotes are placed around string values.
+			command.CommandText = string.Format("INSERT INTO childrenbooks VALUES('{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', {7}, {8}, '{9}')",
+				children.Isbn, children.Title, children.AuthorFirstName, children.AuthorLastName, children.IsCheckedOut, children.CheckOutDate, children.ReturnDate, children.AgeGroup, children.LearningLevel, children.Message);
+
+			// Execute the SQL statement
+			// Must use the "ExecuteNonQuery" method when writing to the database.
+			command.ExecuteNonQuery();
+
+			// Ensure the cmd resources are disposed since it's no longer used.
+			command.Dispose();
+		}
+
+		//Add to Mystery books database
+		public void Add(Mystery mystery)
+		{
+			// Create MySqlCommand instance
+			MySqlCommand command = SqlConnection.CreateCommand();
+
+			// Create the SQL statement
+			// Ensure quotes are placed around string values.
+			command.CommandText = string.Format("INSERT INTO mysterybooks VALUES('{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', {7}, '{8}')",
+				mystery.Isbn, mystery.Title, mystery.AuthorFirstName, mystery.AuthorLastName, mystery.IsCheckedOut, mystery.CheckOutDate, mystery.ReturnDate, mystery.SuspenseLevel, mystery.LiteratureType);
+
+			// Execute the SQL statement
+			// Must use the "ExecuteNonQuery" method when writing to the database.
+			command.ExecuteNonQuery();
+
+			// Ensure the cmd resources are disposed since it's no longer used.
+			command.Dispose();
+		}
+
+		//Add to Romance books database
+
+		public void Add(Romance romance)
+		{
+			// Create MySqlCommand instance
+			MySqlCommand command = SqlConnection.CreateCommand();
+
+			// Create the SQL statement
+			// Ensure quotes are placed around string values.
+			command.CommandText = string.Format("INSERT INTO romancebooks VALUES('{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', '{7}', '{8}')",
+				romance.Isbn, romance.Title, romance.AuthorFirstName, romance.AuthorLastName, romance.IsCheckedOut, romance.CheckOutDate, romance.ReturnDate, romance.Tone, romance.Setting);
+
+			// Execute the SQL statement
+			// Must use the "ExecuteNonQuery" method when writing to the database.
+			command.ExecuteNonQuery();
+
+			// Ensure the cmd resources are disposed since it's no longer used.
+			command.Dispose();
+		}
+
+		public void Close()
+		{
+			if (this.SqlConnection != null)
+			{
+				this.SqlConnection.Close();
+				this.SqlConnection = null;
+			}
+		}
+	}
 }
 

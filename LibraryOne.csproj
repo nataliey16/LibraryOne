@@ -66,6 +66,11 @@
 		<Folder Include="BookClass\" />
 		<Folder Include="UserClass\" />
 	</ItemGroup>
+	<ItemGroup>
+	  <None Update="Data\categories.csv">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
 
 	<ItemGroup>
 	  <BundleResource Include="BookClass\BG4.jpeg">

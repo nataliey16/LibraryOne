@@ -65,8 +65,10 @@
                             <!--Picker-->
                             <Picker x:Name="BookPicker" WidthRequest="640" BackgroundColor="#FFFDFA" HeightRequest="50" TextColor="Gray" Title="Select Book" HorizontalOptions="Center" Margin="0,0,0,0"  />
 
-                            <!--Button-->
-                            <Button  BackgroundColor="#FFFDFA"  WidthRequest="150" TextColor="#1D1E1E" Text="Go To Book" CornerRadius="10"  HeightRequest="50" Margin="20,0,32,0" />
+
+                            <!--Button MAKE SURE TO REMOVE CHECKOUT EVENT-->
+                        <Button Clicked="GoToCheckoutPage" BackgroundColor="#FFFDFA"  WidthRequest="150" TextColor="#1D1E1E" Text="Go To Book" CornerRadius="10"  HeightRequest="50" Margin="20,0,0,0" />
+
 
                         </HorizontalStackLayout>
 
