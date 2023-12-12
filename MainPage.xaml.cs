@@ -34,12 +34,6 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 
-
-    private async void GoToCheckoutPage(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new CheckoutPage());
-    }
-
         BindingContext = this;
 
         // inialize and create sqldatabase object/class
@@ -79,14 +73,16 @@ public partial class MainPage : ContentPage
 
     }
 
+    private async void GoToCheckoutPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new CheckoutPage());
+    }
 
     // on search button clicked calls search method 
     public void Button_ClickedSearch(System.Object sender, System.EventArgs e)
     {
         SearchBook();
     }
-
-
 
     // Search for book 
     public void SearchBook()
