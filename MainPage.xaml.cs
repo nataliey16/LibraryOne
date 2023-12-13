@@ -78,6 +78,10 @@ public partial class MainPage : ContentPage
 
     }
 
+    private async void GoToCheckoutPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new CheckoutPage());
+    }
 
     // on search button clicked calls search method 
     public void Button_ClickedSearch(System.Object sender, System.EventArgs e)
@@ -89,8 +93,6 @@ public partial class MainPage : ContentPage
         SearchBook();
         
     }
-
-
 
     // Search for book 
     public async void SearchBook()
