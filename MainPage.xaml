@@ -9,7 +9,7 @@
 
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
 
-            <!--<Label Text="LibraryOne." FontSize="26" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" Margin="0,3,0,100" />-->
+            <Label Text="LibraryOne" FontSize="30" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" Margin="0,20,0,30" />
 
 
             <Border StrokeThickness="3" WidthRequest="900"  HeightRequest="500" Stroke="#7F8283" StrokeShape="RoundRectangle 40,40,40,40" VerticalOptions="Center" BackgroundColor="LightSteelBlue" Opacity="0.9">
@@ -63,10 +63,10 @@
                         <HorizontalStackLayout HorizontalOptions="End" Margin="0,20,0,0">
 
                             <!--Picker-->
-                            <Picker x:Name="BookPicker" WidthRequest="640" BackgroundColor="#FFFDFA" HeightRequest="50" TextColor="Gray" Title="Select Book" HorizontalOptions="Center" Margin="0,0,0,0"  />
+                            <Picker x:Name="BookPicker" WidthRequest="640" BackgroundColor="#FFFDFA" HeightRequest="50" TextColor="Gray" Title="Select Book" HorizontalOptions="Center" Margin="0,0,0,0" SelectedIndexChanged="Picker_SelectedIndexChanged"  />
 
 
-                            <!--Button MAKE SURE TO REMOVE CHECKOUT EVENT-->
+                            <!--Button-->
                         <Button Clicked="GoToCheckoutPage" BackgroundColor="#FFFDFA"  WidthRequest="150" TextColor="#1D1E1E" Text="Go To Book" CornerRadius="10"  HeightRequest="50" Margin="20,0,0,0" />
 
 

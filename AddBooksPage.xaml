@@ -5,7 +5,7 @@
              Title="Add Books">
     <ScrollView>
         <VerticalStackLayout >
-        <Label Text="LibraryOne." FontSize="26" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" Margin="0,3,0,100" />
+            <Label Text="LibraryOne" FontSize="30" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" Margin="0,20,0,30" />
             <Border StrokeThickness="2" WidthRequest="700"  HeightRequest="1200" Stroke="#7F8283" StrokeShape="RoundRectangle 40,40,40,40" VerticalOptions="Center" BackgroundColor="LightSteelBlue">
                 <Border.Shadow>
                     <Shadow Brush="#000" Radius="6" Opacity="0.6"/>
