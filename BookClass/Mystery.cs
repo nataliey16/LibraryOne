@@ -47,12 +47,7 @@ namespace LibraryOne.BookClass
 		public override string ToString()
 		{
 
-			string displayMysteryBookInfo =
-				base.ToString() +
-				$"\n Suspense Level: {suspenseLevel}" +
-				$"\n Literature Type: {literatureType}";
-
-			return displayMysteryBookInfo;
-		}
+            return $"ISBN: {Isbn} Title: {Title} Author: {AuthorFirstName}, {AuthorLastName}";
+        }
 	}
 }
