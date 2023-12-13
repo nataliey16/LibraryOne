@@ -42,19 +42,19 @@
 
                         </HorizontalStackLayout>
                     </StackLayout>
-                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" Margin="0,20">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" Margin="0,10">
                         <HorizontalStackLayout>
                             <StackLayout Orientation="Horizontal" Spacing="20">
 
-                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200" >
-                                    <Entry x:Name="addCheckOutStatus"  WidthRequest="200" HeightRequest="50" TextColor="DarkSlateGray" Placeholder="Checkout Status" PlaceholderColor="Gray" />
+                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="640" >
+                                    <Entry x:Name="addCheckOutStatus"  WidthRequest="640" HeightRequest="50" TextColor="DarkSlateGray" Placeholder="Checkout Status" PlaceholderColor="Gray" />
                                 </Border>
-                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200" >
+                                <!--<Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200" >
                                     <Entry x:Name="addCheckOutDate" WidthRequest="200" HeightRequest="50" TextColor="DarkSlateGray" Placeholder="Checkout Date" PlaceholderColor="Gray" />
                                 </Border>
                                 <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200" >
                                     <Entry x:Name="addReturnDate" WidthRequest="200" HeightRequest="50" TextColor="DarkSlateGray" Placeholder="Return Date" PlaceholderColor="Gray" />
-                                </Border>
+                                </Border>-->
 
                             </StackLayout>
 
@@ -67,26 +67,6 @@
                         </HorizontalStackLayout>
                     </StackLayout>
 
-                    <!--UI for science category -OLDER VERSION -->
-
-                    <!--<StackLayout x:Name="bookCategoryLayoutTemporary" Orientation="Horizontal" HorizontalOptions="Center" Margin="0,20,0,20">
-                        <HorizontalStackLayout>
-                            <StackLayout Orientation="Horizontal" Spacing="20">
-
-                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200" >
-                                    <Entry x:Name="entry1" WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="" PlaceholderColor="White" />
-                                </Border>
-
-                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
-                                    <Entry x:Name="entry2" WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="" PlaceholderColor="White"/>
-                                </Border>
-                                <Border Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
-                                    <Entry x:Name="entry3" WidthRequest="200" HeightRequest="50" TextColor="White" Placeholder="" PlaceholderColor="White"/>
-                                </Border>
-
-                            </StackLayout>
-                        </HorizontalStackLayout>
-                    </StackLayout>-->
 
                     <Label Text="Science:" FontSize="14" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Start" Margin="25,5,0,5" />
 

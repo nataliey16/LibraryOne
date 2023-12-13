@@ -35,10 +35,7 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 
 
-    private async void GoToCheckoutPage(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new CheckoutPage());
-    }
+      
 
         BindingContext = this;
 
@@ -47,7 +44,7 @@ public partial class MainPage : ContentPage
 
 
         // calls open method in sqldatabase class 
-		Database.Open();
+        Database.Open();
 
 
         // calls methods in sql data base class and stores values into the lists
@@ -74,17 +71,20 @@ public partial class MainPage : ContentPage
         // found book picker item source = observable collection
         BookPicker.ItemsSource = Foundbooks;
         //BookPicker.ItemDisplayBinding = new Binding("Title");
-       
-        
 
+
+
+	}
+
+    public async void GoToCheckoutPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new CheckoutPage());
     }
-
-
     // on search button clicked calls search method 
     public void Button_ClickedSearch(System.Object sender, System.EventArgs e)
-    {
-        SearchBook();
-    }
+        {
+            SearchBook();
+        }
 
 
 
@@ -98,7 +98,7 @@ public partial class MainPage : ContentPage
 
         string BookAuthorLNSearch = SearchAuthorLastName.Text;
 
-        
+
 
 
         foreach (Book book in Allbooks)

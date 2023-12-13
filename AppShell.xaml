@@ -20,7 +20,11 @@
             <ShellContent ContentTemplate="{DataTemplate local:AddBooksPage}" Route="AddBooksPage" />
 
         </Tab>
-    
+        <Tab Title="Checkout Books" >
+            <ShellContent ContentTemplate="{DataTemplate local:CheckoutPage}" Route="CheckoutPage" />
+
+        </Tab>
+
     </TabBar>
 
 </Shell>
