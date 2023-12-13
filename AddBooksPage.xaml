@@ -6,13 +6,19 @@
     <ScrollView>
         <VerticalStackLayout >
             <Label Text="LibraryOne" FontSize="30" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" Margin="0,20,0,30" />
-            <Border StrokeThickness="2" WidthRequest="700"  HeightRequest="1200" Stroke="#7F8283" StrokeShape="RoundRectangle 40,40,40,40" VerticalOptions="Center" BackgroundColor="LightSteelBlue">
+            <Border Stroke="#7F8283" 
+                    StrokeThickness="3" 
+                    StrokeShape="RoundRectangle 40,40,40,40"
+                    HorizontalOptions="Center"
+                    BackgroundColor="LightSteelBlue"
+                    WidthRequest="700"
+                    Margin="0,0,0,100" >
                 <Border.Shadow>
                     <Shadow Brush="#000" Radius="6" Opacity="0.6"/>
                 </Border.Shadow>
                 <StackLayout Padding="0" VerticalOptions="CenterAndExpand" >
                     <!-- Search label -->
-                    <Label Text="ADD BOOK" FontSize="25" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" Margin="0,40,0,80" />
+                    <Label Text="Add Book" FontSize="24" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" Margin="0,20,0,50" />
                     <!-- Input Boxes, Search Button, and Picker Menu -->
                     <StackLayout Orientation="Vertical" HorizontalOptions="Center">
                         <HorizontalStackLayout>
