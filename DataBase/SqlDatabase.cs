@@ -2,6 +2,7 @@
 using MySqlConnector;
 using LibraryOne.BookClass;
 using LibraryOne.UserClass;
+using Microsoft.Maui.Controls;
 
 
 namespace LibraryOne.DataBase
@@ -399,6 +400,102 @@ namespace LibraryOne.DataBase
 				this.SqlConnection = null;
 			}
 		}
-	}
+
+        // Add a method to update the IsCheckedOut field of a book in the database
+        public void UpdateBook(string isbn, bool isCheckedOut)
+        {
+            UpdateBookIsCheckedOut(isbn, isCheckedOut);
+            UpdateBookCheckOutDate(isbn);
+            UpdateBookReturnDate(isbn);
+        }
+
+        public void UpdateBookIsCheckedOut(string isbn, bool isCheckedOut)
+        {
+            MySqlCommand command = SqlConnection.CreateCommand();
+
+            if(isbn.StartsWith('0'))
+            {
+                command.CommandText = "UPDATE childrenbooks SET IsCheckedOut = @isCheckedOut WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith('1'))
+            {
+                command.CommandText = "UPDATE mysterybooks SET IsCheckedOut = @isCheckedOut WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith('2'))
+            {
+                command.CommandText = "UPDATE romancebooks SET IsCheckedOut = @isCheckedOut WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith('3'))
+            {
+                command.CommandText = "UPDATE sciencebooks SET IsCheckedOut = @isCheckedOut WHERE ISBN = @isbn";
+            }
+
+
+
+            // Add parameters to prevent SQL injection
+            command.Parameters.AddWithValue("@isCheckedOut", isCheckedOut);
+            command.Parameters.AddWithValue("@isbn", isbn);
+
+            command.ExecuteNonQuery();
+            command.Dispose();
+        }
+
+        public void UpdateBookCheckOutDate(string isbn)
+        {
+            MySqlCommand command = SqlConnection.CreateCommand();
+
+            if(isbn.StartsWith("0"))
+            {
+                command.CommandText = "UPDATE childrenbooks SET CheckOutDate = CURDATE() WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith("1"))
+            {
+                command.CommandText = "UPDATE mysterybooks SET CheckOutDate = CURDATE() WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith("2"))
+            {
+                command.CommandText = "UPDATE romancebooks SET CheckOutDate = CURDATE() WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith("3"))
+            {
+                command.CommandText = "UPDATE sciencebooks SET CheckOutDate = CURDATE() WHERE ISBN = @isbn";
+            }
+
+            // Add parameters to prevent SQL injection
+            command.Parameters.AddWithValue("@isbn", isbn);
+
+            command.ExecuteNonQuery();
+            command.Dispose();
+        }
+
+        public void UpdateBookReturnDate(string isbn)
+        {
+            MySqlCommand command = SqlConnection.CreateCommand();
+
+            if(isbn.StartsWith("0"))
+            {
+                command.CommandText = "UPDATE childrenbooks SET ReturnDate = DATE_ADD(CURDATE(), INTERVAL 14 DAY) WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith("1"))
+            {
+                command.CommandText = "UPDATE mysterybooks SET ReturnDate = DATE_ADD(CURDATE(), INTERVAL 14 DAY) WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith("2"))
+            {
+                command.CommandText = "UPDATE romancebooks SET ReturnDate = DATE_ADD(CURDATE(), INTERVAL 14 DAY) WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith("3"))
+            {
+                command.CommandText = "UPDATE sciencebooks SET ReturnDate = DATE_ADD(CURDATE(), INTERVAL 14 DAY) WHERE ISBN = @isbn";
+            }
+            // Add parameters to prevent SQL injection
+            command.Parameters.AddWithValue("@isbn", isbn);
+
+            command.ExecuteNonQuery();
+            command.Dispose();
+        }
+
+
+    }
 }
 

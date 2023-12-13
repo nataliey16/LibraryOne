@@ -33,7 +33,19 @@ public partial class MainPage : ContentPage
     // picker for found books
     ObservableCollection<Book> Foundbooks = new ObservableCollection<Book>();
 
-    
+    // Added for picker function in checkout page
+    private Book selectedBook;
+
+    public Book SelectedBook
+    {
+        get { return selectedBook; }
+        set
+        {
+            selectedBook = value;
+            OnPropertyChanged();
+        }
+    }
+
 
     public MainPage()
 	{
@@ -79,6 +91,32 @@ public partial class MainPage : ContentPage
     }
 
 
+    // Picker selected index to find book selected
+    private void Picker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Picker picker = (Picker)sender;
+        int selectedIndex = picker.SelectedIndex;
+
+        if (selectedIndex >= 0 && selectedIndex < Foundbooks.Count)
+        {
+            SelectedBook = Foundbooks[selectedIndex];
+        }
+    }
+
+    // Go to checkout page
+    private async void GoToCheckoutPage(object sender, EventArgs e)
+    {
+        if (selectedBook == null)
+        {
+            DisplayAlert("Ooops", "Please make sure to select a book to checkout", "OK");
+        }
+        else
+        {
+            await Navigation.PushAsync(new CheckoutPage(SelectedBook));
+        }
+    }
+
+
     // on search button clicked calls search method 
     public void Button_ClickedSearch(System.Object sender, System.EventArgs e)
     {
@@ -89,8 +127,6 @@ public partial class MainPage : ContentPage
         SearchBook();
         
     }
-
-
 
     // Search for book 
     public async void SearchBook()
@@ -171,7 +207,9 @@ public partial class MainPage : ContentPage
                 if (bookCounter == 0)
                 {
                     throw new ArgumentException();
-                }    
+                }
+                
+                BookPicker.SelectedIndex = 0;
             }
             
 
