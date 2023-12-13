@@ -2,18 +2,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LibraryOne.MainPage"
-             Title="Search Books"
-             BackgroundColor="#FFFDFA">
-
-    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-
-            <Label Text="LibraryOne." FontSize="26" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" Margin="0,3,0,100" />
+             Title="Search Books">
+    <Grid>
+        <Image Source="BookClass/BG4.jpeg" Aspect="AspectFill" />
 
 
-            <Border StrokeThickness="3" WidthRequest="900"  HeightRequest="500" Stroke="#7F8283" StrokeShape="RoundRectangle 40,40,40,40" VerticalOptions="Center" BackgroundColor="LightSteelBlue">
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+
+            <!--<Label Text="LibraryOne." FontSize="26" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" Margin="0,3,0,100" />-->
+
+
+            <Border StrokeThickness="3" WidthRequest="900"  HeightRequest="500" Stroke="#7F8283" StrokeShape="RoundRectangle 40,40,40,40" VerticalOptions="Center" BackgroundColor="LightSteelBlue" Opacity="0.9">
                 <Border.Shadow> <Shadow Brush="#000" Radius="6" Opacity="0.6"/></Border.Shadow>
+               
 
-                 <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
+                <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
             
        
 
@@ -77,5 +80,10 @@
             </Border>
 
         </StackLayout>
+
+
+    </Grid>
+   
+    
 
 </ContentPage>

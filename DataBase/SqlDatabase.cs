@@ -19,20 +19,31 @@ namespace LibraryOne.DataBase
         // method to connect to the database 
         public void Open()
         {
-            MySqlConnectionStringBuilder connectionStringBuilder = new MySqlConnectionStringBuilder();
+            try // catches exception if unable to connect to the database
+            {
+                MySqlConnectionStringBuilder connectionStringBuilder = new MySqlConnectionStringBuilder();
 
-            connectionStringBuilder.Server = "localhost";
-            connectionStringBuilder.UserID = "root";
-            connectionStringBuilder.Password = "password";
-            connectionStringBuilder.Database = "Library";
+                connectionStringBuilder.Server = "localhost";
+                connectionStringBuilder.UserID = "root";
+                connectionStringBuilder.Password = "password";
+                connectionStringBuilder.Database = "Library";
 
 
 
 
-            SqlConnection = new MySqlConnection(connectionStringBuilder.ConnectionString);
+                SqlConnection = new MySqlConnection(connectionStringBuilder.ConnectionString);
 
-            SqlConnection.Open();
+                SqlConnection.Open();
+            }
+            catch (MySqlException ex)
+            {
 
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Unable to connect to the database");
+
+            }
+
+            
         }
 
 

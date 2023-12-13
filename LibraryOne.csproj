@@ -58,6 +58,8 @@
 		<None Remove="DataBase\" />
 		<None Remove="BookClass\" />
 		<None Remove="UserClass\" />
+		<None Remove="BookClass\jess-bailey-X5gDoysLbBc-unsplash.jpg" />
+		<None Remove="BookClass\BG4.jpeg" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="DataBase\" />
@@ -70,4 +72,9 @@
 	  </None>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <BundleResource Include="BookClass\BG4.jpeg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </BundleResource>
+	</ItemGroup>
 </Project>

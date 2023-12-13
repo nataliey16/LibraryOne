@@ -4,6 +4,11 @@ using LibraryOne.BookClass;
 using LibraryOne.UserClass;
 using MySqlConnector;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using System;
+using System.Globalization;
+
+
 
 public partial class MainPage : ContentPage
 {
@@ -26,7 +31,7 @@ public partial class MainPage : ContentPage
     List<Book> Allbooks = new();
 
     // picker for found books
-    ObservableCollection<string> Foundbooks = new ObservableCollection<string>();
+    ObservableCollection<Book> Foundbooks = new ObservableCollection<Book>();
 
     
 
@@ -35,7 +40,10 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 
 
-      
+    private async void GoToCheckoutPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new CheckoutPage());
+    }
 
         BindingContext = this;
 
@@ -71,50 +79,125 @@ public partial class MainPage : ContentPage
         // found book picker item source = observable collection
         BookPicker.ItemsSource = Foundbooks;
         //BookPicker.ItemDisplayBinding = new Binding("Title");
+       
+        
 
-
-
-	}
-
-    public async void GoToCheckoutPage(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new CheckoutPage());
     }
+
+
     // on search button clicked calls search method 
     public void Button_ClickedSearch(System.Object sender, System.EventArgs e)
-        {
-            SearchBook();
-        }
-
-
+    {
+        SearchBook();
+    }
 
     // Search for book 
-    public void SearchBook()
+    public async void SearchBook()
     {
+        // sets input feild text as varible and call capitalize frist letter of each word method
+        string BookTitleSearch = CapitalizeFirstLetter(SearchTitle.Text);
+        
 
-        string BookTitleSerach = SearchTitle.Text;
+        string BookAuthorFNSearch = CapitalizeFirstLetter(SearchAuthorFirstName.Text);
+        
 
-        string BookAuthorFNSearch = SearchAuthorFirstName.Text;
+        string BookAuthorLNSearch = CapitalizeFirstLetter(SearchAuthorLastName.Text);
+        
 
-        string BookAuthorLNSearch = SearchAuthorLastName.Text;
-
-
-
-
-        foreach (Book book in Allbooks)
+        try // exceptions for is search is null or if author first & last name are not filled out 
         {
 
-            if (BookTitleSerach == book.Title || (BookAuthorFNSearch == book.AuthorFirstName & BookAuthorLNSearch == book.AuthorLastName))
+            if(string.IsNullOrEmpty(BookTitleSearch) & string.IsNullOrEmpty(BookAuthorFNSearch) & string.IsNullOrEmpty(BookAuthorLNSearch))
             {
-
-
-                string DisplayBook = $"ISBN: {book.Isbn}, Title: {book.Title}, Author: {book.AuthorFirstName} {book.AuthorLastName}";
-
-                Foundbooks.Add(DisplayBook);
-
+                throw new InvalidDataException();
             }
+            else if(!string.IsNullOrEmpty(BookTitleSearch) & !string.IsNullOrEmpty(BookAuthorFNSearch) & string.IsNullOrEmpty(BookAuthorLNSearch))
+            {
+                throw new ArgumentException();
+            }
+            else if (!string.IsNullOrEmpty(BookTitleSearch) & string.IsNullOrEmpty(BookAuthorFNSearch) & !string.IsNullOrEmpty(BookAuthorLNSearch))
+            {
+                throw new ArgumentException();
+            }
+            else if (string.IsNullOrEmpty(BookTitleSearch) & !string.IsNullOrEmpty(BookAuthorFNSearch) & string.IsNullOrEmpty(BookAuthorLNSearch))
+            {
+                throw new ArgumentException();
+            }
+            else if (string.IsNullOrEmpty(BookTitleSearch) & string.IsNullOrEmpty(BookAuthorFNSearch) & !string.IsNullOrEmpty(BookAuthorLNSearch))
+            {
+                throw new ArgumentException();
+            }
+
+
+
+        }
+        catch (InvalidDataException)
+        {
+
+            await DisplayAlert("Alert", "Search fields cannot be empty", "OK");
+
+        }
+        catch (ArgumentException)
+        {
+            await DisplayAlert("Alert", "Must enter author first & last name", "OK");
         }
 
+        
+
+            if (!string.IsNullOrEmpty(BookTitleSearch) || (!string.IsNullOrEmpty(BookAuthorFNSearch) & !string.IsNullOrEmpty(BookAuthorLNSearch)))
+            {
+
+                foreach (Book book in Allbooks)
+                {
+                    if (BookTitleSearch == book.Title || (BookAuthorFNSearch == book.AuthorFirstName & BookAuthorLNSearch == book.AuthorLastName))
+                    {
+
+
+                        //string DisplayBook = $"ISBN: {book.Isbn}, Title: {book.Title}, Author: {book.AuthorFirstName} {book.AuthorLastName}";
+
+                        Foundbooks.Add(book);
+                        bookCounter++;
+
+                    }
+                    
+                }
+
+                if (bookCounter == 0)
+                {
+                    throw new ArgumentException();
+                }    
+            }
+            
+
+        }
+        catch (ArgumentException)
+        {
+            await DisplayAlert("Alert", "Could not find that book or author", "Search Again");
+        }
+        
+
     }
+
+
+
+
+    // Capitalizes first letter of each word for easier input and interaction with database values
+    static string CapitalizeFirstLetter(string input)
+    {
+        if (string.IsNullOrEmpty(input)) // couldnt get exceptions to work without this if 
+        {
+            return string.Empty;
+        }
+
+        TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+
+        return textInfo.ToTitleCase(input);
+    }
+
+
+
+
+
+
 }
 

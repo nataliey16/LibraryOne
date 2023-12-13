@@ -48,13 +48,8 @@ namespace LibraryOne.BookClass
 		public override string ToString()
 		{
 
-			string displayRomanceBookInfo =
-				base.ToString() +
-				$"\n Tone: {tone}" +
-				$"\n Setting: {setting}";
-
-			return displayRomanceBookInfo;
-		}
+            return $"ISBN: {Isbn} Title: {Title} Author: {AuthorFirstName}, {AuthorLastName}";
+        }
 
 	}
 }

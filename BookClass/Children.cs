@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace LibraryOne.BookClass
 {
-    public class Children : Book
-    {
+	public class Children : Book
+	{
 
 		// childern books start with 0
 		//Fields
@@ -58,13 +59,21 @@ namespace LibraryOne.BookClass
 		public override string ToString()
 		{
 
-			string displayChildrenBookInfo =
-				base.ToString() +
-				$"\n Age Group: {ageGroup}" +
-				$"\n Learning Level: {learningLevel} " +
-				$"\n Message: {message}";
-
-			return displayChildrenBookInfo;
+			return $"ISBN: {Isbn} Title: {Title} Author: {AuthorFirstName}, {AuthorLastName}";
 		}
+
+
+
+
+
+
+
+
+
+
+
 	}
+
+
+
 }
