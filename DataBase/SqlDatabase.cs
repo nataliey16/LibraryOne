@@ -412,7 +412,25 @@ namespace LibraryOne.DataBase
         public void UpdateBookIsCheckedOut(string isbn, bool isCheckedOut)
         {
             MySqlCommand command = SqlConnection.CreateCommand();
-            command.CommandText = "UPDATE childrenbooks SET IsCheckedOut = @isCheckedOut WHERE ISBN = @isbn";
+
+            if(isbn.StartsWith('0'))
+            {
+                command.CommandText = "UPDATE childrenbooks SET IsCheckedOut = @isCheckedOut WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith('1'))
+            {
+                command.CommandText = "UPDATE mysterybooks SET IsCheckedOut = @isCheckedOut WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith('2'))
+            {
+                command.CommandText = "UPDATE romancebooks SET IsCheckedOut = @isCheckedOut WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith('3'))
+            {
+                command.CommandText = "UPDATE sciencebooks SET IsCheckedOut = @isCheckedOut WHERE ISBN = @isbn";
+            }
+
+
 
             // Add parameters to prevent SQL injection
             command.Parameters.AddWithValue("@isCheckedOut", isCheckedOut);
@@ -425,7 +443,23 @@ namespace LibraryOne.DataBase
         public void UpdateBookCheckOutDate(string isbn)
         {
             MySqlCommand command = SqlConnection.CreateCommand();
-            command.CommandText = "UPDATE childrenbooks SET CheckOutDate = CURDATE() WHERE ISBN = @isbn";
+
+            if(isbn.StartsWith("0"))
+            {
+                command.CommandText = "UPDATE childrenbooks SET CheckOutDate = CURDATE() WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith("1"))
+            {
+                command.CommandText = "UPDATE mysterybooks SET CheckOutDate = CURDATE() WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith("2"))
+            {
+                command.CommandText = "UPDATE romancebooks SET CheckOutDate = CURDATE() WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith("3"))
+            {
+                command.CommandText = "UPDATE sciencebooks SET CheckOutDate = CURDATE() WHERE ISBN = @isbn";
+            }
 
             // Add parameters to prevent SQL injection
             command.Parameters.AddWithValue("@isbn", isbn);
@@ -437,8 +471,23 @@ namespace LibraryOne.DataBase
         public void UpdateBookReturnDate(string isbn)
         {
             MySqlCommand command = SqlConnection.CreateCommand();
-            command.CommandText = "UPDATE childrenbooks SET ReturnDate = DATE_ADD(CURDATE(), INTERVAL 14 DAY) WHERE ISBN = @isbn";
 
+            if(isbn.StartsWith("0"))
+            {
+                command.CommandText = "UPDATE childrenbooks SET ReturnDate = DATE_ADD(CURDATE(), INTERVAL 14 DAY) WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith("1"))
+            {
+                command.CommandText = "UPDATE mysterybooks SET ReturnDate = DATE_ADD(CURDATE(), INTERVAL 14 DAY) WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith("2"))
+            {
+                command.CommandText = "UPDATE romancebooks SET ReturnDate = DATE_ADD(CURDATE(), INTERVAL 14 DAY) WHERE ISBN = @isbn";
+            }
+            if (isbn.StartsWith("3"))
+            {
+                command.CommandText = "UPDATE sciencebooks SET ReturnDate = DATE_ADD(CURDATE(), INTERVAL 14 DAY) WHERE ISBN = @isbn";
+            }
             // Add parameters to prevent SQL injection
             command.Parameters.AddWithValue("@isbn", isbn);
 

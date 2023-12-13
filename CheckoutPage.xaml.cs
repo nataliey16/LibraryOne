@@ -62,7 +62,7 @@ public partial class CheckoutPage : ContentPage
     }
 
     private async void ClickSubmitCheckOut(object sender, EventArgs e)
-    {
+    {      
         // Update the database to mark the book as checked out and set the CheckedOutDate to the current date
         this.Database.UpdateBook(SelectedBook.Isbn, true);
 

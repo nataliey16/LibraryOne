@@ -106,7 +106,14 @@ public partial class MainPage : ContentPage
     // Go to checkout page
     private async void GoToCheckoutPage(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new CheckoutPage(SelectedBook));
+        if (selectedBook == null)
+        {
+            DisplayAlert("Ooops", "Please make sure to select a book to checkout", "OK");
+        }
+        else
+        {
+            await Navigation.PushAsync(new CheckoutPage(SelectedBook));
+        }
     }
 
 
@@ -200,7 +207,9 @@ public partial class MainPage : ContentPage
                 if (bookCounter == 0)
                 {
                     throw new ArgumentException();
-                }    
+                }
+                
+                BookPicker.SelectedIndex = 0;
             }
             
 
