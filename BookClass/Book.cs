@@ -103,9 +103,7 @@ namespace LibraryOne.BookClass
 		public override string ToString() // Method to print book information 
 		{
 
-			//return $"ISBN: {isbn} Title: {title} Author: {authorFirstName}, {authorLastName} Checkout Date: {checkOutDate} Return Date: {returnDate}";
-
-            return $"ISBN: {Isbn}, Title: {Title}, Author: {AuthorFirstName} {AuthorLastName}";
-        }
+			return $"ISBN: {Isbn} Title: {Title} Author: {AuthorFirstName}, {AuthorLastName}";
+		}
 	}
 }
