@@ -1,11 +1,41 @@
 namespace LibraryOne;
+using LibraryOne.DataBase;
+using LibraryOne.BookClass;
 
 public partial class CheckoutPage : ContentPage
 {
-	public CheckoutPage()
+    // Added for picker function in checkout page
+    private Book selectedBook;
+    public Book SelectedBook
+    {
+        get { return selectedBook; }
+        set
+        {
+            selectedBook = value;
+            OnPropertyChanged();
+        }
+    }
+
+    private string authorFullName;
+    public string AuthorFullName
+    {
+        get { return authorFullName; }
+        set
+        {
+            authorFullName = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public CheckoutPage(Book book)
 	{
-		InitializeComponent();
-	}
+        InitializeComponent();
+
+        SelectedBook = book;
+        AuthorFullName = book.AuthorFirstName + " " + book.AuthorLastName;
+
+        this.BindingContext = this;
+    }
 
     private async void GoToMainPage(object sender, EventArgs e)
     {

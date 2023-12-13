@@ -8,15 +8,16 @@
     <ScrollView>
         <StackLayout HorizontalOptions="Center">
 
-            <Label Text="LibraryOne." FontSize="26" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" Margin="0,20,0,100" />
+            <Label Text="LibraryOne" FontSize="30" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" Margin="0,20,0,30" />
 
 
             <Border Stroke="#7F8283" 
-                        StrokeThickness="3" 
-                        StrokeShape="RoundRectangle 40,40,40,40" 
-                        HorizontalOptions="Center"
-                        BackgroundColor="LightSteelBlue"
-                        WidthRequest="700">
+                    StrokeThickness="3" 
+                    StrokeShape="RoundRectangle 40,40,40,40" 
+                    HorizontalOptions="Center"
+                    BackgroundColor="LightSteelBlue"
+                    WidthRequest="700"
+                    Margin="0,0,0,100" >
 
                 <Border.Shadow>
                     <Shadow Brush="#000"  Radius="6" Opacity="0.6"/>
@@ -44,22 +45,22 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Row="0" Grid.Column="0" Text="ISBN" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
-                        <Label Grid.Row="0" Grid.Column="1" Text="Placeholder Text" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
-
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding SelectedBook.Isbn}" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+                        
                         <Label Grid.Row="1" Grid.Column="0" Text="Title" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
-                        <Label Grid.Row="1" Grid.Column="1" Text="Placeholder Text" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding SelectedBook.Title}" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
 
                         <Label Grid.Row="2" Grid.Column="0" Text="Author Name" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
-                        <Label Grid.Row="2" Grid.Column="1" Text="Placeholder Text" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding AuthorFullName}" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
 
                         <Label Grid.Row="3" Grid.Column="0" Text="Availability" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
-                        <Label Grid.Row="3" Grid.Column="1" Text="Placeholder Text" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding SelectedBook.IsCheckedOut}" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
 
                         <Label Grid.Row="4" Grid.Column="0" Text="Checked Out Date" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
-                        <Label Grid.Row="4" Grid.Column="1" Text="Placeholder Text" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+                        <Label Grid.Row="4" Grid.Column="1" Text="{Binding SelectedBook.CheckOutDate}" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
 
                         <Label Grid.Row="5" Grid.Column="0" Text="Return Date" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
-                        <Label Grid.Row="5" Grid.Column="1" Text="Placeholder Text" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
+                        <Label Grid.Row="5" Grid.Column="1" Text="{Binding SelectedBook.ReturnDate}" FontSize="18" FontFamily="Roboto" TextColor="#1D1E1E" HorizontalOptions="Center" />
 
                         <Button Grid.Row="6" Grid.Column="0" Clicked="GoToMainPage" BackgroundColor="#FFFDFA"  WidthRequest="150" CornerRadius="10" TextColor="#1D1E1E" Text="Cancel" HeightRequest="50" HorizontalOptions="EndAndExpand" Margin="0,0,25,0" />
                         <Button Grid.Row="6" Grid.Column="1" BackgroundColor="#FFFDFA"  WidthRequest="150" CornerRadius="10" TextColor="#1D1E1E" Text="Submit" HeightRequest="50" HorizontalOptions="StartAndExpand" Margin="25,0,0,0"/>

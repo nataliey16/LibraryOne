@@ -9,7 +9,7 @@
 
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
 
-            <!--<Label Text="LibraryOne." FontSize="26" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" Margin="0,3,0,100" />-->
+            <Label Text="LibraryOne" FontSize="30" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" Margin="0,20,0,30" />
 
 
             <Border StrokeThickness="3" WidthRequest="900"  HeightRequest="500" Stroke="#7F8283" StrokeShape="RoundRectangle 40,40,40,40" VerticalOptions="Center" BackgroundColor="LightSteelBlue" Opacity="0.9">
