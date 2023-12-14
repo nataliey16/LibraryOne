@@ -104,7 +104,7 @@ public partial class MainPage : ContentPage
 	}
 
 	// Go to checkout page
-	private async void GoToCheckoutPage(object sender, EventArgs e)
+	async void GoToCheckoutPage(object sender, EventArgs e)
 	{
 		if (selectedBook == null)
 		{
@@ -112,8 +112,11 @@ public partial class MainPage : ContentPage
 		}
 		else
 		{
-			await Navigation.PushAsync(new CheckoutPage(SelectedBook));
-		}
+            await Navigation.PushAsync(new CheckoutPage(SelectedBook));
+        }
+
+			
+		
 	}
 
 
@@ -127,6 +130,8 @@ public partial class MainPage : ContentPage
 		SearchBook();
 
 	}
+
+
 
 	// Search for book 
 	public async void SearchBook()
@@ -142,11 +147,11 @@ public partial class MainPage : ContentPage
 		string BookAuthorLNSearch = CapitalizeFirstLetter(SearchAuthorLastName.Text);
 
     // Go to checkout page
-    private async void GoToCheckoutPage(object sender, EventArgs e)
+    async void GoToCheckoutPage(object sender, EventArgs e)
     {
         if (SelectedBook == null)
         {
-            await DisplayAlert("Ooops", "Please make sure to select a book to checkout", "OK");
+            DisplayAlert("Ooops", "Please make sure to select a book to checkout", "OK");
         }
         else
         {

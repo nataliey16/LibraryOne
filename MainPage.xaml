@@ -34,18 +34,19 @@
 
                                <Border Stroke="White" StrokeThickness="3" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
 
-                                   <Entry x:Name="SearchTitle" WidthRequest="200" HeightRequest="50" TextColor="Gray" Placeholder="Title" />
+                               
+                                   <Entry x:Name="SearchTitle" BackgroundColor="Grey" WidthRequest="200" HeightRequest="50" TextColor="Black" PlaceholderColor="White" Placeholder="Title" />
 
                                </Border>
                                
                                <Border Stroke="White" StrokeThickness="3" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
-                                   <Entry x:Name="SearchAuthorFirstName"  WidthRequest="200" HeightRequest="50" TextColor="Gray" Placeholder="Author First Name" />
+                                   <Entry x:Name="SearchAuthorFirstName" BackgroundColor="Grey"  WidthRequest="200" HeightRequest="50" TextColor="Black" PlaceholderColor="White" Placeholder="Author First Name" />
 
                                </Border>
 
 
                                <Border Stroke="White" StrokeThickness="3" StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="51" WidthRequest="200">
-                                   <Entry x:Name="SearchAuthorLastName"  WidthRequest="200" HeightRequest="50" TextColor="Gray" Placeholder="Author Last Name" />
+                                   <Entry x:Name="SearchAuthorLastName" BackgroundColor="Grey"  WidthRequest="200" HeightRequest="50" TextColor="Black" PlaceholderColor="White" Placeholder="Author Last Name" />
 
                                </Border>
                                
@@ -63,7 +64,7 @@
                         <HorizontalStackLayout HorizontalOptions="End" Margin="0,20,0,0">
 
                             <!--Picker-->
-                            <Picker x:Name="BookPicker" WidthRequest="640" BackgroundColor="#FFFDFA" HeightRequest="50" TextColor="Gray" Title="Select Book" HorizontalOptions="Center" Margin="0,0,0,0"  />
+                            <Picker x:Name="BookPicker" SelectedIndexChanged="Picker_SelectedIndexChanged" WidthRequest="640" BackgroundColor="#FFFDFA" HeightRequest="50" TextColor="Gray" Title="Select Book" HorizontalOptions="Center" Margin="0,0,0,0"  />
 
 
                             <!--Button MAKE SURE TO REMOVE CHECKOUT EVENT-->
