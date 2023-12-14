@@ -138,7 +138,22 @@ public partial class MainPage : ContentPage
 		string BookAuthorFNSearch = CapitalizeFirstLetter(SearchAuthorFirstName.Text);
 
 
+
 		string BookAuthorLNSearch = CapitalizeFirstLetter(SearchAuthorLastName.Text);
+
+    // Go to checkout page
+    private async void GoToCheckoutPage(object sender, EventArgs e)
+    {
+        if (SelectedBook == null)
+        {
+            await DisplayAlert("Ooops", "Please make sure to select a book to checkout", "OK");
+        }
+        else
+        {
+            await Navigation.PushAsync(new CheckoutPage(SelectedBook));
+        }
+    }
+
 
 
 		try // exceptions for is search is null or if author first & last name are not filled out 
