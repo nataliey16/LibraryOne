@@ -106,9 +106,9 @@ public partial class MainPage : ContentPage
     // Go to checkout page
     private async void GoToCheckoutPage(object sender, EventArgs e)
     {
-        if (selectedBook == null)
+        if (SelectedBook == null)
         {
-            DisplayAlert("Ooops", "Please make sure to select a book to checkout", "OK");
+            await DisplayAlert("Ooops", "Please make sure to select a book to checkout", "OK");
         }
         else
         {
