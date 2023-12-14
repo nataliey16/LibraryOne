@@ -145,27 +145,11 @@ public partial class AddBooksPage : ContentPage
 			this.EntryIsEnabled.Add(true); // Enable Suspense Level
 			this.EntryIsEnabled.Add(true); // Enable Literature Type
 		}
-		else
-		{
-			// Disable the entry boxes for other categories
-			DisableEntry();
-		}
+
 
 
 		// Apply the entry box states to your UI controls
 		ApplyEntryBoxStates(expectedSelectedCategory);
-	}
-
-	private void DisableEntry()
-	{
-		// Disable all entry boxes
-		this.EntryIsEnabled.Add(false); // Disable Subject
-		this.EntryIsEnabled.Add(false); // Disable Scientific Level
-		this.EntryIsEnabled.Add(false); // Disable Type of Book
-		this.EntryIsEnabled.Add(false); // Disable Age Group
-		this.EntryIsEnabled.Add(false); // Disable Learning Level
-		this.EntryIsEnabled.Add(false); // Disable Message
-		this.EntryIsEnabled.Add(false); // Disable Message
 	}
 
 
@@ -220,8 +204,8 @@ public partial class AddBooksPage : ContentPage
 		string isbn;
 		string title;
 		bool isCheckedOut;
-		string checkOutDate;
-		string returnDate;
+		string checkOutDate = null;
+		string returnDate = null;
 
 		//string bookCategory;
 		//Input values for Science
@@ -287,23 +271,23 @@ public partial class AddBooksPage : ContentPage
 		}
 
 
-		if (string.IsNullOrEmpty(this.addCheckOutDate.Text) == false)
-		{
-			checkOutDate = this.addCheckOutDate.Text;
-		}
-		else
-		{
-			checkOutDate = "";
-		}
+		//if (string.IsNullOrEmpty(this.addCheckOutDate.Text) == false)
+		//{
+		//	checkOutDate = this.addCheckOutDate.Text;
+		//}
+		//else
+		//{
+		//	checkOutDate = null;
+		//}
 
-		if (string.IsNullOrEmpty(this.addReturnDate.Text) == false)
-		{
-			returnDate = this.addReturnDate.Text;
-		}
-		else
-		{
-			returnDate = "";
-		}
+		//if (string.IsNullOrEmpty(this.addReturnDate.Text) == false)
+		//{
+		//	returnDate = this.addReturnDate.Text;
+		//}
+		//else
+		//{
+		//	returnDate = "";
+		//}
 
 
 		if (string.IsNullOrEmpty(this.addSubject.Text) == false)
