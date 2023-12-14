@@ -14,7 +14,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <Style x:Key="CommonEntryStyle" TargetType="Entry">
-                <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="WidthRequest" Value="2000" />
                 <Setter Property="HeightRequest" Value="50" />
                 <Setter Property="TextColor" Value="Gray" />
                 <Setter Property="PlaceholderColor" Value="Gray" />
